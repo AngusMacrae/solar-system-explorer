@@ -1,0 +1,21 @@
+{
+  "name": "solar-system-explorer-server",
+  "version": "1.0.0",
+  "description": "Back end for the Solar System Explorer app",
+  "main": "index.js",
+  "engines": {
+    "node": "11.10"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Angus Macrae",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
