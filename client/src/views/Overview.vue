@@ -1,27 +1,75 @@
 <template>
   <div id="solar-system-overview">
-    <router-link to="/planet/Mercury">Mercury</router-link>
-    <router-link to="/planet/Venus">Venus</router-link>
-    <router-link to="/planet/Earth">Earth</router-link>
-    <router-link to="/planet/Mars">Mars</router-link>
-    <router-link to="/planet/Jupiter">Jupiter</router-link>
-    <router-link to="/planet/Saturn">Saturn</router-link>
-    <router-link to="/planet/Neptune">Neptune</router-link>
-    <router-link to="/planet/Uranus">Uranus</router-link>
+    <!-- <router-link to="/planet/Mercury">Mercury</router-link> -->
+    <SSObject
+      v-for="object in Objects"
+      :key="object.index"
+      :name="object.name"
+      :fillColour="object.bulkColour"
+      :diameter="object.linkDiameter"
+    />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
+import SSObject from "@/components/SSObject.vue";
 
 export default {
   name: "Overview",
   data() {
-    return {};
+    return {
+      Objects: [
+        {
+          name: "Sol",
+          bulkColour: "#fbd813",
+          linkDiameter: 300
+        },
+        {
+          name: "Mercury",
+          bulkColour: "#DBCECA",
+          linkDiameter: 50
+        },
+        {
+          name: "Venus",
+          bulkColour: "#fbd813",
+          linkDiameter: 300
+        },
+        {
+          name: "Earth",
+          bulkColour: "#DBCECA",
+          linkDiameter: 50
+        },
+        {
+          name: "Mars",
+          bulkColour: "#fbd813",
+          linkDiameter: 300
+        },
+        {
+          name: "Jupiter",
+          bulkColour: "#DBCECA",
+          linkDiameter: 50
+        },
+        {
+          name: "Saturn",
+          bulkColour: "#DBCECA",
+          linkDiameter: 50
+        },
+        {
+          name: "Neptune",
+          bulkColour: "#fbd813",
+          linkDiameter: 300
+        },
+        {
+          name: "Uranus",
+          bulkColour: "#DBCECA",
+          linkDiameter: 50
+        }
+      ]
+    };
   },
-  mounted: function() {},
-  components: {}
+  components: {
+    SSObject
+  }
 };
 </script>
 
@@ -30,7 +78,6 @@ export default {
   height: 100vh;
   width: 100vw;
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
