@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["planet"],{"24e0":function(e,n,t){"use strict";t.r(n);var a=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[t("h1",[e._v(e._s(e.$route.params.planet))])])},l=[],r=t("2877"),s={},u=Object(r["a"])(s,a,l,!1,null,null,null);n["default"]=u.exports}}]);
+//# sourceMappingURL=planet.aa5d0be7.js.map
