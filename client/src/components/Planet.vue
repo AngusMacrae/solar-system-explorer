@@ -54,6 +54,7 @@ export default {
     font-size: 1.3rem;
     position: relative;
     top: 40px;
+    background-color: #181818;
   }
 }
 
