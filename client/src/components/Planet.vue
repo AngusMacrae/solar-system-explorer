@@ -19,7 +19,7 @@ export default {
     },
     cssVars() {
       return {
-        "--bg-colour": this.fillColour,
+        "--fill-colour": this.fillColour,
         "--diameter": this.diameter / 20 + "vw"
       };
     }
@@ -28,6 +28,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/variables";
+
 .wrapper {
   position: relative;
 }
@@ -36,25 +38,25 @@ export default {
   border-radius: 50%;
   width: var(--diameter);
   height: var(--diameter);
-  background-color: var(--bg-colour);
+  background-color: var(--fill-colour);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   text-align: center;
   transition: all 0.2s ease;
-  color: #252525;
+  color: $muted-colour;
 
   &:hover {
     transform: scale(1.02);
-    color: #999;
+    color: $primary-colour;
   }
 
   h2 {
     font-size: 1.3rem;
     position: relative;
     top: 40px;
-    background-color: #181818;
+    background-color: $bg-colour;
   }
 }
 
@@ -62,7 +64,7 @@ export default {
   width: 5000px;
   height: 5000px;
   border-radius: 50%;
-  border: 1px solid #252525;
+  border: 1px solid $muted-colour;
   z-index: -999;
   position: absolute;
   top: calc(var(--diameter) / 2 - 2500px);

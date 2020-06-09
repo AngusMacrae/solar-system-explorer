@@ -49,12 +49,12 @@ export default {
         },
         {
           name: "Mars",
-          bulkColour: "#a1251b",
+          bulkColour: "#bc2731",
           linkDiameter: 75
         },
         {
           name: "Jupiter",
-          bulkColour: "#e36e4b",
+          bulkColour: "#d8ca9d",
           linkDiameter: 250
         },
         {

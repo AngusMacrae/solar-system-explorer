@@ -18,7 +18,7 @@ export default {
     },
     cssVars() {
       return {
-        "--bg-colour": this.fillColour,
+        "--fill-colour": this.fillColour,
         "--diameter": this.diameter + "px"
       };
     }
@@ -27,6 +27,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/variables";
+
 .wrapper {
   position: absolute;
   left: -4900px;
@@ -36,7 +38,7 @@ export default {
   border-radius: 50%;
   width: var(--diameter);
   height: var(--diameter);
-  background-color: var(--bg-colour);
+  background-color: var(--fill-colour);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -56,7 +58,7 @@ a {
 
   &:hover h2 {
     transform: scale(1.02);
-    color: #181818;
+    color: $bg-colour;
   }
 }
 

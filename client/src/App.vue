@@ -3,6 +3,8 @@
 </template>
 
 <style lang="scss">
+@import "scss/variables";
+
 *,
 *:before,
 *:after {
@@ -28,8 +30,8 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #181818;
-  color: #ccc;
+  background-color: $bg-colour;
+  color: $primary-colour;
 }
 
 ul[class],
