@@ -23,6 +23,7 @@ p {
 
 body {
   min-height: 100vh;
+  width: 100vw;
   line-height: 1.5;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

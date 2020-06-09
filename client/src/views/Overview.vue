@@ -1,29 +1,37 @@
 <template>
   <div id="solar-system-overview">
     <!-- <router-link to="/planet/Mercury">Mercury</router-link> -->
-    <SSObject
-      v-for="object in Objects"
-      :key="object.index"
-      :name="object.name"
-      :fillColour="object.bulkColour"
-      :diameter="object.linkDiameter"
+    <Sol
+      :name="bodies[0].name"
+      :fillColour="bodies[0].bulkColour"
+      :diameter="bodies[0].linkDiameter"
+    />
+    <Planet
+      v-for="planet in planets"
+      :key="planet.index"
+      :name="planet.name"
+      :fillColour="planet.bulkColour"
+      :diameter="planet.linkDiameter"
     />
   </div>
 </template>
 
 <script>
-import SSObject from "@/components/SSObject.vue";
+import Sol from "@/components/Sol.vue";
+import Planet from "@/components/Planet.vue";
 
 export default {
   name: "Overview",
   data() {
     return {
-      Objects: [
+      bodies: [
         {
           name: "Sol",
           bulkColour: "#fbd813",
-          linkDiameter: 300
-        },
+          linkDiameter: 5000
+        }
+      ],
+      planets: [
         {
           name: "Mercury",
           bulkColour: "#DBCECA",
@@ -31,44 +39,45 @@ export default {
         },
         {
           name: "Venus",
-          bulkColour: "#fbd813",
-          linkDiameter: 300
+          bulkColour: "#8B7D82",
+          linkDiameter: 100
         },
         {
           name: "Earth",
-          bulkColour: "#DBCECA",
-          linkDiameter: 50
+          bulkColour: "#6b93d6",
+          linkDiameter: 100
         },
         {
           name: "Mars",
-          bulkColour: "#fbd813",
-          linkDiameter: 300
+          bulkColour: "#a1251b",
+          linkDiameter: 75
         },
         {
           name: "Jupiter",
-          bulkColour: "#DBCECA",
-          linkDiameter: 50
+          bulkColour: "#e36e4b",
+          linkDiameter: 250
         },
         {
           name: "Saturn",
-          bulkColour: "#DBCECA",
-          linkDiameter: 50
+          bulkColour: "#ab604a",
+          linkDiameter: 200
         },
         {
           name: "Neptune",
-          bulkColour: "#fbd813",
-          linkDiameter: 300
+          bulkColour: "#73ACAC",
+          linkDiameter: 150
         },
         {
           name: "Uranus",
-          bulkColour: "#DBCECA",
-          linkDiameter: 50
+          bulkColour: "#bbe1e4",
+          linkDiameter: 150
         }
       ]
     };
   },
   components: {
-    SSObject
+    Sol,
+    Planet
   }
 };
 </script>
@@ -79,14 +88,17 @@ export default {
   width: 100vw;
   display: flex;
   align-items: center;
+  justify-content: space-around;
+  position: relative;
+  padding-left: 115px;
+  overflow: hidden;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-
-  &:hover {
-    color: #999;
+@media (max-width: 970px) {
+  #solar-system-overview {
+    flex-direction: column;
+    padding-left: 0;
+    padding-top: 115px;
   }
 }
 </style>
