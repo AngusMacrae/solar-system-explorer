@@ -20,7 +20,8 @@ export default {
     cssVars() {
       return {
         "--fill-colour": this.fillColour,
-        "--diameter": this.diameter / 20 + "vw"
+        "--diameter-vw": this.diameter / 15 + "vw",
+        "--diameter-vh": this.diameter / 15 + "vh"
       };
     }
   }
@@ -36,8 +37,8 @@ export default {
 
 .planet {
   border-radius: 50%;
-  width: var(--diameter);
-  height: var(--diameter);
+  width: var(--diameter-vw);
+  height: var(--diameter-vw);
   background-color: var(--fill-colour);
   display: flex;
   flex-direction: column;
@@ -67,8 +68,8 @@ export default {
   border: 1px solid $muted-colour;
   z-index: -999;
   position: absolute;
-  top: calc(var(--diameter) / 2 - 2500px);
-  right: calc(var(--diameter) / 2);
+  top: calc(var(--diameter-vw) / 2 - 2500px);
+  right: calc(var(--diameter-vw) / 2);
 }
 
 a {
@@ -77,10 +78,14 @@ a {
 }
 
 @media (max-width: 970px) {
+  .planet {
+    width: var(--diameter-vh);
+    height: var(--diameter-vh);
+  }
   .orbit {
     top: auto;
-    right: calc(var(--diameter) / 2 - 2500px);
-    bottom: calc(var(--diameter) / 2);
+    right: calc(var(--diameter-vh) / 2 - 2500px);
+    bottom: calc(var(--diameter-vh) / 2);
   }
 
   .planet {
@@ -88,7 +93,7 @@ a {
 
     h2 {
       top: auto;
-      left: calc(var(--diameter) / 2 + 60px);
+      left: calc(var(--diameter-vh) / 2 + 60px);
     }
   }
 }

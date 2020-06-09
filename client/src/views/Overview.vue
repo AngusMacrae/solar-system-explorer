@@ -35,22 +35,22 @@ export default {
         {
           name: "Mercury",
           bulkColour: "#DBCECA",
-          linkDiameter: 50
+          linkDiameter: 25
         },
         {
           name: "Venus",
           bulkColour: "#8B7D82",
-          linkDiameter: 100
+          linkDiameter: 50
         },
         {
           name: "Earth",
           bulkColour: "#6b93d6",
-          linkDiameter: 100
+          linkDiameter: 50
         },
         {
           name: "Mars",
           bulkColour: "#bc2731",
-          linkDiameter: 75
+          linkDiameter: 35
         },
         {
           name: "Jupiter",
@@ -60,17 +60,17 @@ export default {
         {
           name: "Saturn",
           bulkColour: "#ab604a",
-          linkDiameter: 200
+          linkDiameter: 150
         },
         {
           name: "Neptune",
           bulkColour: "#73ACAC",
-          linkDiameter: 150
+          linkDiameter: 100
         },
         {
           name: "Uranus",
           bulkColour: "#bbe1e4",
-          linkDiameter: 150
+          linkDiameter: 100
         }
       ]
     };
