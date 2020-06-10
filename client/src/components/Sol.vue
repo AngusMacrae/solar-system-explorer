@@ -31,7 +31,7 @@ export default {
 
 .wrapper {
   position: absolute;
-  left: -4900px;
+  right: 92vw;
 }
 
 .body {
@@ -44,7 +44,6 @@ export default {
   align-items: flex-end;
   justify-content: center;
   text-align: center;
-  padding-right: 35px;
 }
 
 a {
@@ -52,6 +51,9 @@ a {
   text-decoration: none;
 
   h2 {
+    position: relative;
+    right: 4vw;
+    transform: translateX(50%);
     font-size: 1.3rem;
     transition: all 0.2s ease;
   }
@@ -65,15 +67,27 @@ a {
 @media (max-width: 970px) {
   .wrapper {
     position: absolute;
-    left: auto;
-    top: -4900px;
+    right: auto;
+    bottom: 92vh;
   }
 
   .body {
     align-items: center;
     justify-content: flex-end;
-    padding-right: 0;
-    padding-bottom: 35px;
+    width: calc(var(--diameter) / 2);
+    height: calc(var(--diameter) / 2);
+  }
+
+  a {
+    h2 {
+      right: auto;
+      bottom: 4vh;
+      transform: translateY(50%);
+    }
+
+    &:hover h2 {
+      transform: translateY(50%) scale(1.02);
+    }
   }
 }
 </style>

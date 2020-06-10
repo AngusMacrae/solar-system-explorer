@@ -12,7 +12,7 @@
 <script>
 export default {
   name: "Planet",
-  props: ["name", "fillColour", "diameter"],
+  props: ["name", "fillColour", "diameter", "solDiameter"],
   computed: {
     path() {
       return "/planet/" + this.name;
@@ -21,7 +21,8 @@ export default {
       return {
         "--fill-colour": this.fillColour,
         "--diameter-vw": this.diameter / 15 + "vw",
-        "--diameter-vh": this.diameter / 15 + "vh"
+        "--diameter-vh": this.diameter / 15 + "vh",
+        "--sol-diameter": this.solDiameter + "px"
       };
     }
   }
@@ -62,13 +63,13 @@ export default {
 }
 
 .orbit {
-  width: 5000px;
-  height: 5000px;
+  width: var(--sol-diameter);
+  height: var(--sol-diameter);
   border-radius: 50%;
   border: 1px solid $muted-colour;
   z-index: -999;
   position: absolute;
-  top: calc(var(--diameter-vw) / 2 - 2500px);
+  top: calc(var(--diameter-vw) / 2 - var(--sol-diameter) / 2);
   right: calc(var(--diameter-vw) / 2);
 }
 
@@ -83,8 +84,10 @@ a {
     height: var(--diameter-vh);
   }
   .orbit {
+    width: calc(var(--sol-diameter) / 2);
+    height: calc(var(--sol-diameter) / 2);
     top: auto;
-    right: calc(var(--diameter-vh) / 2 - 2500px);
+    right: calc(var(--diameter-vh) / 2 - var(--sol-diameter) / 4);
     bottom: calc(var(--diameter-vh) / 2);
   }
 
@@ -93,8 +96,23 @@ a {
 
     h2 {
       top: auto;
-      left: calc(var(--diameter-vh) / 2 + 60px);
+      transform: translateX(50%);
+      left: calc(var(--diameter-vh) / 2 + 20px);
     }
   }
 }
+
+@media (max-width: 405px) {
+  .planet h2 {
+    // left: calc(var(--diameter-vh) / 2 + 10px);
+    font-size: 1.15rem;
+  }
+}
+
+// @media (max-width: 340px) {
+//   .planet {
+//     width: var(--diameter-vh);
+//     height: var(--diameter-vh);
+//   }
+// }
 </style>

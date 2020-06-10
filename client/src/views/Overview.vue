@@ -1,17 +1,14 @@
 <template>
   <div id="solar-system-overview">
     <!-- <router-link to="/planet/Mercury">Mercury</router-link> -->
-    <Sol
-      :name="bodies[0].name"
-      :fillColour="bodies[0].bulkColour"
-      :diameter="bodies[0].linkDiameter"
-    />
+    <Sol :name="bodies[0].name" :fillColour="bodies[0].bulkColour" :diameter="bodies[0].diameter" />
     <Planet
       v-for="planet in planets"
       :key="planet.index"
       :name="planet.name"
       :fillColour="planet.bulkColour"
-      :diameter="planet.linkDiameter"
+      :diameter="planet.diameter"
+      :solDiameter="bodies[0].diameter"
     />
   </div>
 </template>
@@ -28,49 +25,49 @@ export default {
         {
           name: "Sol",
           bulkColour: "#fbd813",
-          linkDiameter: 5000
+          diameter: 5000
         }
       ],
       planets: [
         {
           name: "Mercury",
           bulkColour: "#DBCECA",
-          linkDiameter: 25
+          diameter: 25
         },
         {
           name: "Venus",
           bulkColour: "#8B7D82",
-          linkDiameter: 50
+          diameter: 50
         },
         {
           name: "Earth",
           bulkColour: "#6b93d6",
-          linkDiameter: 50
+          diameter: 50
         },
         {
           name: "Mars",
           bulkColour: "#bc2731",
-          linkDiameter: 35
+          diameter: 35
         },
         {
           name: "Jupiter",
           bulkColour: "#d8ca9d",
-          linkDiameter: 250
+          diameter: 250
         },
         {
           name: "Saturn",
           bulkColour: "#ab604a",
-          linkDiameter: 150
+          diameter: 150
         },
         {
           name: "Neptune",
           bulkColour: "#73ACAC",
-          linkDiameter: 100
+          diameter: 100
         },
         {
           name: "Uranus",
           bulkColour: "#bbe1e4",
-          linkDiameter: 100
+          diameter: 100
         }
       ]
     };
@@ -90,7 +87,7 @@ export default {
   align-items: center;
   justify-content: space-around;
   position: relative;
-  padding-left: 115px;
+  padding-left: 9vw;
   overflow: hidden;
 }
 
@@ -98,7 +95,7 @@ export default {
   #solar-system-overview {
     flex-direction: column;
     padding-left: 0;
-    padding-top: 115px;
+    padding-top: 9vh;
   }
 }
 </style>
