@@ -1,14 +1,14 @@
 <template>
   <div id="solar-system-overview">
-    <!-- <router-link to="/planet/Mercury">Mercury</router-link> -->
     <Sol :name="bodies[0].name" :fillColour="bodies[0].bulkColour" :diameter="bodies[0].diameter" />
     <Planet
-      v-for="planet in planets"
-      :key="planet.index"
+      v-for="(planet, index) in planets"
+      :key="index"
       :name="planet.name"
       :fillColour="planet.bulkColour"
       :diameter="planet.diameter"
       :solDiameter="bodies[0].diameter"
+      :transitionDelay="(index * 2 + 2) / 10"
     />
   </div>
 </template>

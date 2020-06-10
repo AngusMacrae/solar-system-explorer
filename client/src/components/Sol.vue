@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper offscreen">
     <router-link :to="path">
       <div class="body" :style="cssVars">
         <h2>{{name}}</h2>
@@ -22,6 +22,12 @@ export default {
         "--diameter": this.diameter + "px"
       };
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.$el.classList.remove("offscreen");
+    }, 100);
+    console.log("hi");
   }
 };
 </script>
@@ -32,6 +38,14 @@ export default {
 .wrapper {
   position: absolute;
   right: 92vw;
+  transition: right 0.8s ease-out;
+}
+
+.offscreen {
+  right: 100vw;
+  h2 {
+    opacity: 0 !important;
+  }
 }
 
 .body {
@@ -55,20 +69,25 @@ a {
     right: 4vw;
     transform: translateX(50%);
     font-size: 1.3rem;
+    opacity: 1;
     transition: all 0.2s ease;
+    transition: opacity 0.3s ease-in-out 0.9s;
   }
 
   &:hover h2 {
-    transform: scale(1.02);
+    transform: translateX(50%) scale(1.02);
     color: $bg-colour;
   }
 }
 
 @media (max-width: 970px) {
   .wrapper {
-    position: absolute;
     right: auto;
     bottom: 92vh;
+  }
+
+  .wrapper.offscreen {
+    bottom: 100vh;
   }
 
   .body {
