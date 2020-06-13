@@ -8,10 +8,7 @@
 export default {
   data() {
     return {
-      body: fetch('http://localhost:5000/api/planets/' + this.$route.params.body).then(response => {
-        console.log(response.json());
-        return response.json();
-      }),
+      body: fetch('http://localhost:5000/api/planets/' + this.$route.params.body).then(response => response.json()),
     };
   },
   mounted() {
