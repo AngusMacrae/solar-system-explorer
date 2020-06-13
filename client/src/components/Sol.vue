@@ -31,8 +31,7 @@ export default {
 
 .wrapper {
   position: absolute;
-  right: 92vw;
-  animation: slide-in-left 1.2s ease-out 0.5s 1 normal both;
+  animation: slide-in-left 1s ease-out 0.5s 1 normal both;
 }
 
 .body {
@@ -57,7 +56,7 @@ a {
     transform: translateX(50%);
     font-size: 1.3rem;
     transition: transform 0.2s;
-    animation: fade-in 0.3s ease-out 1.5s 1 normal both;
+    animation: fade-in 0.3s ease-out 1.7s 1 normal both;
   }
 
   &:hover h2 {
@@ -68,19 +67,19 @@ a {
 
 @keyframes slide-in-left {
   0% {
-    transform: translateX(-8vw);
+    right: 100vw;
   }
   100% {
-    transform: translateX(0vw);
+    right: 92vw;
   }
 }
 
 @keyframes slide-in-top {
   0% {
-    transform: translateY(-8vh);
+    bottom: 100vh;
   }
   100% {
-    transform: translateY(0vh);
+    bottom: 92vh;
   }
 }
 
@@ -95,8 +94,6 @@ a {
 
 @media (max-width: 970px) {
   .wrapper {
-    right: auto;
-    bottom: 92vh;
     animation: slide-in-top 0.8s ease-out 0.5s 1 normal both;
   }
 
@@ -112,11 +109,18 @@ a {
       right: auto;
       bottom: 4vh;
       transform: translateY(50%);
+      animation: fade-in 0.3s ease-out 1.5s 1 normal both;
     }
 
     &:hover h2 {
       transform: translateY(50%) scale(1.02);
     }
+  }
+}
+
+@media (max-width: 405px) {
+  a h2 {
+    font-size: 1.15rem;
   }
 }
 </style>

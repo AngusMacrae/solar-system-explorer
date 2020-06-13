@@ -4,6 +4,7 @@
     <router-link :to="path" disabled>
       <div class="planet" :style="cssVars">
         <h2>{{name}}</h2>
+        <!-- <div class="ring"></div> -->
       </div>
     </router-link>
   </div>
@@ -72,6 +73,33 @@ export default {
   }
 }
 
+.orbit {
+  width: var(--sol-diameter);
+  height: var(--sol-diameter);
+  border-radius: 50%;
+  border: 1px solid $muted-colour;
+  z-index: -999;
+  position: absolute;
+  top: calc(var(--diameter-vw) / 2 - var(--sol-diameter) / 2);
+  right: calc(var(--diameter-vw) / 2);
+  animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal
+    both;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// .ring {
+//   position: absolute;
+//   border-radius: 50%;
+//   width: calc(var(--diameter-vw) * 1.2);
+//   height: calc(var(--diameter-vw) * 1.2);
+//   z-index: -99;
+//   background-color: white;
+// }
+
 @keyframes orbit-in-left {
   0% {
     transform: rotate(315deg) translateX(var(--orbit-radius)) rotate(-315deg);
@@ -99,24 +127,6 @@ export default {
   }
 }
 
-.orbit {
-  width: var(--sol-diameter);
-  height: var(--sol-diameter);
-  border-radius: 50%;
-  border: 1px solid $muted-colour;
-  z-index: -999;
-  position: absolute;
-  top: calc(var(--diameter-vw) / 2 - var(--sol-diameter) / 2);
-  right: calc(var(--diameter-vw) / 2);
-  animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal
-    both;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 @media (max-width: 970px) {
   .planet {
     width: var(--diameter-vh);
@@ -124,6 +134,7 @@ a {
     bottom: var(--orbit-radius);
     right: auto;
     transform: rotate(0deg) translateY(var(--orbit-radius)) rotate(0deg);
+    justify-content: center;
 
     animation: orbit-in-top 1.5s cubic-bezier(0.075, 0.82, 0.165, 1)
       calc(var(--transition-delay) + 0.5s) 1 normal backwards;
@@ -131,6 +142,14 @@ a {
     &:hover {
       transform: rotate(0deg) translateY(var(--orbit-radius)) rotate(0deg)
         scale(1.02);
+    }
+
+    h2 {
+      top: auto;
+      transform: translateX(50%);
+      left: calc(var(--diameter-vh) / 2 + 20px);
+      animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 2s) 1
+        normal both;
     }
   }
 
@@ -141,22 +160,17 @@ a {
     right: calc(var(--diameter-vh) / 2 - var(--sol-diameter) / 4);
     bottom: calc(var(--diameter-vh) / 2);
   }
-
-  .planet {
-    justify-content: center;
-
-    h2 {
-      top: auto;
-      transform: translateX(50%);
-      left: calc(var(--diameter-vh) / 2 + 20px);
-    }
-  }
 }
 
 @media (max-width: 405px) {
   .planet h2 {
-    // left: calc(var(--diameter-vh) / 2 + 10px);
     font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .planet h2 {
+    left: calc(var(--diameter-vh) / 2 + 10px);
   }
 }
 
