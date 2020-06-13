@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper offscreen">
+  <div class="wrapper">
     <router-link :to="path">
       <div class="body" :style="cssVars">
         <h2>{{name}}</h2>
@@ -22,12 +22,6 @@ export default {
         "--diameter": this.diameter + "px"
       };
     }
-  },
-  mounted() {
-    setTimeout(() => {
-      this.$el.classList.remove("offscreen");
-    }, 100);
-    console.log("hi");
   }
 };
 </script>
@@ -38,14 +32,7 @@ export default {
 .wrapper {
   position: absolute;
   right: 92vw;
-  transition: right 0.8s ease-out;
-}
-
-.offscreen {
-  right: 100vw;
-  h2 {
-    opacity: 0 !important;
-  }
+  animation: slide-in-left 1.2s ease-out 0.5s 1 normal both;
 }
 
 .body {
@@ -69,9 +56,8 @@ a {
     right: 4vw;
     transform: translateX(50%);
     font-size: 1.3rem;
-    opacity: 1;
-    transition: all 0.2s ease;
-    transition: opacity 0.3s ease-in-out 0.9s;
+    transition: transform 0.2s;
+    animation: fade-in 0.3s ease-out 1.5s 1 normal both;
   }
 
   &:hover h2 {
@@ -80,14 +66,38 @@ a {
   }
 }
 
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-8vw);
+  }
+  100% {
+    transform: translateX(0vw);
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-8vh);
+  }
+  100% {
+    transform: translateY(0vh);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 970px) {
   .wrapper {
     right: auto;
     bottom: 92vh;
-  }
-
-  .wrapper.offscreen {
-    bottom: 100vh;
+    animation: slide-in-top 0.8s ease-out 0.5s 1 normal both;
   }
 
   .body {

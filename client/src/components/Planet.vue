@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper offscreen">
+  <div class="wrapper">
     <div class="orbit" :style="cssVars"></div>
     <router-link :to="path" disabled>
       <div class="planet" :style="cssVars">
@@ -26,11 +26,6 @@ export default {
         "--transition-delay": this.transitionDelay + "s"
       };
     }
-  },
-  mounted() {
-    setTimeout(() => {
-      this.$el.classList.remove("offscreen");
-    }, 100);
   }
 };
 </script>
@@ -43,25 +38,27 @@ export default {
 }
 
 .planet {
+  --orbit-radius: calc(var(--sol-diameter) / 2);
+  color: $muted-colour;
+  background-color: var(--fill-colour);
   position: relative;
-  bottom: 0px;
-  left: 0px;
+  right: var(--orbit-radius);
   border-radius: 50%;
   width: var(--diameter-vw);
   height: var(--diameter-vw);
-  background-color: var(--fill-colour);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   text-align: center;
-  transition: transform 0.2s ease,
-    bottom 1.2s cubic-bezier(0.57, 0.02, 0.78, 1) var(--transition-delay),
-    left 1.2s ease-out var(--transition-delay);
-  color: $muted-colour;
+  transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+  transition: transform 0.2s ease;
+  animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1)
+    calc(var(--transition-delay) + 1.5s) 1 normal backwards;
 
   &:hover {
-    transform: scale(1.02);
+    transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg)
+      scale(1.02);
     color: $primary-colour;
   }
 
@@ -70,8 +67,35 @@ export default {
     position: relative;
     top: 40px;
     background-color: $bg-colour;
+    animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 3s) 1
+      normal both;
+  }
+}
+
+@keyframes orbit-in-left {
+  0% {
+    transform: rotate(315deg) translateX(var(--orbit-radius)) rotate(-315deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+  }
+}
+
+@keyframes orbit-in-top {
+  0% {
+    transform: rotate(45deg) translateY(var(--orbit-radius)) rotate(-45deg);
+  }
+  100% {
+    transform: rotate(0deg) translateY(var(--orbit-radius)) rotate(0deg);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
     opacity: 1;
-    transition: opacity 0.3s ease-in-out calc(var(--transition-delay) + 1.3s);
   }
 }
 
@@ -84,8 +108,8 @@ export default {
   position: absolute;
   top: calc(var(--diameter-vw) / 2 - var(--sol-diameter) / 2);
   right: calc(var(--diameter-vw) / 2);
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out calc(var(--transition-delay) + 0.8s);
+  animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal
+    both;
 }
 
 a {
@@ -93,33 +117,20 @@ a {
   text-decoration: none;
 }
 
-.offscreen {
-  .orbit {
-    opacity: 0;
-  }
-
-  .planet {
-    bottom: 75vh;
-    left: -10vw;
-    h2 {
-      opacity: 0;
-    }
-  }
-}
-
 @media (max-width: 970px) {
   .planet {
     width: var(--diameter-vh);
     height: var(--diameter-vh);
-    transition: transform 0.2s ease,
-      left 1.2s cubic-bezier(0.57, 0.02, 0.78, 1) var(--transition-delay),
-      bottom 1.2s ease-out var(--transition-delay);
-  }
+    bottom: var(--orbit-radius);
+    right: auto;
+    transform: rotate(0deg) translateY(var(--orbit-radius)) rotate(0deg);
 
-  .offscreen {
-    .planet {
-      left: -75vw;
-      bottom: 15vh;
+    animation: orbit-in-top 1.5s cubic-bezier(0.075, 0.82, 0.165, 1)
+      calc(var(--transition-delay) + 0.5s) 1 normal backwards;
+
+    &:hover {
+      transform: rotate(0deg) translateY(var(--orbit-radius)) rotate(0deg)
+        scale(1.02);
     }
   }
 
