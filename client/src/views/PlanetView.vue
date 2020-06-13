@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>{{$route.params.body}}</h1>
+    <h1>{{ $route.params.body }}</h1>
   </div>
 </template>
 
@@ -8,14 +8,20 @@
 export default {
   data() {
     return {
-      // body: fetch().then(response => response.json())
+      body: fetch('http://localhost:5000/api/planets/' + this.$route.params.body).then(response => {
+        console.log(response.json());
+        return response.json();
+      }),
     };
-  }
+  },
+  mounted() {
+    console.log(this.body);
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/variables";
+@import '../scss/variables';
 
 // div {
 //   height: 100vh;
