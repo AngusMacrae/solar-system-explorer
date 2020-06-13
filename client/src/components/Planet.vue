@@ -124,6 +124,7 @@ a {
     bottom: var(--orbit-radius);
     right: auto;
     transform: rotate(0deg) translateY(var(--orbit-radius)) rotate(0deg);
+    justify-content: center;
 
     animation: orbit-in-top 1.5s cubic-bezier(0.075, 0.82, 0.165, 1)
       calc(var(--transition-delay) + 0.5s) 1 normal backwards;
@@ -131,6 +132,14 @@ a {
     &:hover {
       transform: rotate(0deg) translateY(var(--orbit-radius)) rotate(0deg)
         scale(1.02);
+    }
+
+    h2 {
+      top: auto;
+      transform: translateX(50%);
+      left: calc(var(--diameter-vh) / 2 + 20px);
+      animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 2s) 1
+        normal both;
     }
   }
 
@@ -140,16 +149,6 @@ a {
     top: auto;
     right: calc(var(--diameter-vh) / 2 - var(--sol-diameter) / 4);
     bottom: calc(var(--diameter-vh) / 2);
-  }
-
-  .planet {
-    justify-content: center;
-
-    h2 {
-      top: auto;
-      transform: translateX(50%);
-      left: calc(var(--diameter-vh) / 2 + 20px);
-    }
   }
 }
 
