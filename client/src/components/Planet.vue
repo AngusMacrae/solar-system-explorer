@@ -4,6 +4,7 @@
     <router-link :to="path" disabled>
       <div class="planet" :style="cssVars">
         <h2>{{name}}</h2>
+        <!-- <div class="ring"></div> -->
       </div>
     </router-link>
   </div>
@@ -72,6 +73,33 @@ export default {
   }
 }
 
+.orbit {
+  width: var(--sol-diameter);
+  height: var(--sol-diameter);
+  border-radius: 50%;
+  border: 1px solid $muted-colour;
+  z-index: -999;
+  position: absolute;
+  top: calc(var(--diameter-vw) / 2 - var(--sol-diameter) / 2);
+  right: calc(var(--diameter-vw) / 2);
+  animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal
+    both;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// .ring {
+//   position: absolute;
+//   border-radius: 50%;
+//   width: calc(var(--diameter-vw) * 1.2);
+//   height: calc(var(--diameter-vw) * 1.2);
+//   z-index: -99;
+//   background-color: white;
+// }
+
 @keyframes orbit-in-left {
   0% {
     transform: rotate(315deg) translateX(var(--orbit-radius)) rotate(-315deg);
@@ -97,24 +125,6 @@ export default {
   100% {
     opacity: 1;
   }
-}
-
-.orbit {
-  width: var(--sol-diameter);
-  height: var(--sol-diameter);
-  border-radius: 50%;
-  border: 1px solid $muted-colour;
-  z-index: -999;
-  position: absolute;
-  top: calc(var(--diameter-vw) / 2 - var(--sol-diameter) / 2);
-  right: calc(var(--diameter-vw) / 2);
-  animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal
-    both;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 @media (max-width: 970px) {
