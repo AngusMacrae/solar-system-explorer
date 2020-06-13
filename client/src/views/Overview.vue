@@ -29,12 +29,12 @@ export default {
         {
           name: 'Venus',
           bulkColour: '#8B7D82',
-          diameter: 50,
+          diameter: 55,
         },
         {
           name: 'Earth',
           bulkColour: '#6b93d6',
-          diameter: 50,
+          diameter: 60,
         },
         {
           name: 'Mars',
@@ -49,7 +49,7 @@ export default {
         {
           name: 'Saturn',
           bulkColour: '#ab604a',
-          diameter: 150,
+          diameter: 200,
         },
         {
           name: 'Uranus',
