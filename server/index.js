@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
@@ -13,6 +14,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     console.log('Connected to database');
     const db = client.db('solarSystemExplorer');
     const planetsCollection = db.collection('planets');
+    app.use(cors());
     app.get('/api/planets/:planetName', async (req, res) => {
       const planet = await planetsCollection.findOne({ name: req.params.planetName });
       res.json(planet);
