@@ -154,8 +154,13 @@ a {
 
 @media (max-width: 405px) {
   .planet h2 {
-    // left: calc(var(--diameter-vh) / 2 + 10px);
     font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .planet h2 {
+    left: calc(var(--diameter-vh) / 2 + 10px);
   }
 }
 

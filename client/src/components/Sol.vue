@@ -117,4 +117,10 @@ a {
     }
   }
 }
+
+@media (max-width: 405px) {
+  a h2 {
+    font-size: 1.15rem;
+  }
+}
 </style>
