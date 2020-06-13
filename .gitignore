@@ -1,6 +1,7 @@
 .DS_Store
 /client/node_modules
 /server/node_modules
+/server/data/planets.json
 
 # local env files
 .env.local
