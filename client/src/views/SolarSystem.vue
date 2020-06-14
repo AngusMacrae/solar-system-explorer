@@ -10,7 +10,7 @@ import Sol from '@/components/Sol.vue';
 import Planet from '@/components/Planet.vue';
 
 export default {
-  name: 'Overview',
+  name: 'SolarSystem',
   data() {
     return {
       bodies: [
