@@ -5,6 +5,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 const planets = require('./routes/api/planets.js');
 const moons = require('./routes/api/moons.js');
+const moon = require('./routes/api/moon.js');
 // const bodies = require('./routes/api/bodies.js');
 
 const connectionString = 'mongodb+srv://client:client@cluster0-kc2zl.mongodb.net/<dbname>?retryWrites=true&w=majority';
@@ -16,6 +17,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.use(cors());
     app.use('/api/planets', planets);
     app.use('/api/moons', moons);
+    app.use('/api/moon', moon);
     // app.use('/api/bodies', bodies);
   })
   .catch(error => console.error(error));
