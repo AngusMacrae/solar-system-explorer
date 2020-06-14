@@ -5,9 +5,9 @@ const router = express.Router();
 //   res.send('planet');
 // });
 
-router.get('/:bodyName', async (req, res) => {
+router.get('/:planetName', async (req, res) => {
   const planetsCollection = req.app.locals.db.collection('planets');
-  const planet = await planetsCollection.findOne({ name: req.params.bodyName });
+  const planet = await planetsCollection.findOne({ name: req.params.planetName });
   res.json(planet);
 });
 
