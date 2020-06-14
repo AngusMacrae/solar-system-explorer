@@ -1,5 +1,5 @@
 <template>
-  <div id="solar-system-overview">
+  <div id="solar-system">
     <Sol :name="bodies[0].name" :fillColour="bodies[0].bulkColour" :diameter="bodies[0].diameter" />
     <Planet v-for="(planet, index) in planets" :key="index" :name="planet.name" :fillColour="planet.bulkColour" :diameter="planet.diameter" :solDiameter="bodies[0].diameter" :transitionDelay="(index * 2 + 2) / 10" />
   </div>
@@ -72,7 +72,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#solar-system-overview {
+#solar-system {
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -84,7 +84,7 @@ export default {
 }
 
 @media (max-width: 970px) {
-  #solar-system-overview {
+  #solar-system {
     flex-direction: column;
     padding-left: 0;
     padding-top: 9vh;
