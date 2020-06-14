@@ -1,18 +1,19 @@
 <template>
   <div>
-    <h1>{{ $route.params.body }}</h1>
+    <h1>{{ $route.params.bodyName }}</h1>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'PlanetDetails',
   data() {
     return {
-      body: fetch('http://localhost:5000/api/planets/' + this.$route.params.body).then(response => response.json()),
+      json_data: fetch('http://localhost:5000/api/planets/' + this.$route.params.bodyName).then(response => response.json()),
     };
   },
   mounted() {
-    console.log(this.body);
+    this.json_data.then(data => console.log(data));
   },
 };
 </script>
