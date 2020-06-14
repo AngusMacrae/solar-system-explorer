@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-  res.send('planet');
-});
+// router.get('/', async (req, res) => {
+//   res.send('planet');
+// });
 
 router.get('/:bodyName', async (req, res) => {
-  res.send(`Data about ${req.params.bodyName}`);
+  const planetsCollection = req.app.locals.db.collection('planets');
+  const planet = await planetsCollection.findOne({ name: req.params.bodyName });
+  res.json(planet);
 });
 
 module.exports = router;

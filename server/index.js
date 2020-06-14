@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
-// const planets = require('./routes/api/planets.js');
+const planets = require('./routes/api/planets.js');
 // const moons = require('./routes/api/moons.js');
 // const bodies = require('./routes/api/bodies.js');
 
@@ -12,14 +12,14 @@ const connectionString = 'mongodb+srv://client:client@cluster0-kc2zl.mongodb.net
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to database');
-    const db = client.db('solarSystemExplorer');
-    const planetsCollection = db.collection('planets');
+    app.locals.db = client.db('solarSystemExplorer');
     app.use(cors());
-    app.get('/api/planets/:planetName', async (req, res) => {
-      const planet = await planetsCollection.findOne({ name: req.params.planetName });
-      res.json(planet);
-    });
-    // app.use('/api/planets', planets);
+    // const planetsCollection = db.collection('planets');
+    // app.get('/api/planets/:planetName', async (req, res) => {
+    //   const planet = await planetsCollection.findOne({ name: req.params.planetName });
+    //   res.json(planet);
+    // });
+    app.use('/api/planets', planets);
     // app.use('/api/moons', moons);
     // app.use('/api/bodies', bodies);
   })
