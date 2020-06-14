@@ -1,25 +1,23 @@
 <template>
   <div id="solar-system">
-    <Sol :name="bodies[0].name" :fillColour="bodies[0].bulkColour" :diameter="bodies[0].diameter" />
-    <Planet v-for="(planet, index) in planets" :key="index" :name="planet.name" :fillColour="planet.bulkColour" :diameter="planet.diameter" :solDiameter="bodies[0].diameter" :transitionDelay="(index * 2 + 2) / 10" />
+    <Sol :name="sol.name" :fillColour="sol.bulkColour" :diameter="sol.diameter" />
+    <Satellite v-for="(planet, index) in planets" :key="index" :name="planet.name" :fillColour="planet.bulkColour" :diameter="planet.diameter" :orbitDiameter="sol.diameter" :transitionDelay="(index * 2 + 2) / 10" :flexOrder="0" />
   </div>
 </template>
 
 <script>
 import Sol from '@/components/Sol.vue';
-import Planet from '@/components/Planet.vue';
+import Satellite from '@/components/Satellite.vue';
 
 export default {
   name: 'SolarSystem',
   data() {
     return {
-      bodies: [
-        {
-          name: 'Sol',
-          bulkColour: '#fbd813',
-          diameter: 5000,
-        },
-      ],
+      sol: {
+        name: 'Sol',
+        bulkColour: '#fbd813',
+        diameter: 5000,
+      },
       planets: [
         {
           name: 'Mercury',
@@ -66,7 +64,7 @@ export default {
   },
   components: {
     Sol,
-    Planet,
+    Satellite,
   },
 };
 </script>

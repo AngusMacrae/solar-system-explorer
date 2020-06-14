@@ -3,7 +3,7 @@ const cors = require('cors');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
 
-const planets = require('./routes/api/planets.js');
+const planet = require('./routes/api/planet.js');
 const moons = require('./routes/api/moons.js');
 const moon = require('./routes/api/moon.js');
 // const bodies = require('./routes/api/bodies.js');
@@ -15,7 +15,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     console.log('Connected to database');
     app.locals.db = client.db('solarSystemExplorer');
     app.use(cors());
-    app.use('/api/planets', planets);
+    app.use('/api/planet', planet);
     app.use('/api/moons', moons);
     app.use('/api/moon', moon);
     // app.use('/api/bodies', bodies);

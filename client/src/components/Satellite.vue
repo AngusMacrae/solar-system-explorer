@@ -1,8 +1,8 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" :style="cssVars">
     <div class="orbit" :style="cssVars"></div>
     <router-link :to="path">
-      <div class="planet" :style="cssVars">
+      <div class="satellite" :style="cssVars">
         <h2>{{ name }}</h2>
         <!-- <div class="ring"></div> -->
       </div>
@@ -12,8 +12,8 @@
 
 <script>
 export default {
-  name: 'Planet',
-  props: ['name', 'fillColour', 'diameter', 'solDiameter', 'transitionDelay'],
+  name: 'Satellite',
+  props: ['name', 'fillColour', 'diameter', 'orbitDiameter', 'transitionDelay', 'flexOrder'],
   computed: {
     path() {
       return '/' + this.name;
@@ -23,8 +23,9 @@ export default {
         '--fill-colour': this.fillColour,
         '--diameter-vw': this.diameter / 15 + 'vw',
         '--diameter-vh': this.diameter / 15 + 'vh',
-        '--sol-diameter': this.solDiameter + 'px',
+        '--orbit-diameter': this.orbitDiameter + 'px',
         '--transition-delay': this.transitionDelay + 's',
+        '--flex-order': this.flexOrder,
       };
     },
   },
@@ -36,10 +37,11 @@ export default {
 
 .wrapper {
   position: relative;
+  order: var(--flex-order);
 }
 
-.planet {
-  --orbit-radius: calc(var(--sol-diameter) / 2);
+.satellite {
+  --orbit-radius: calc(var(--orbit-diameter) / 2);
   color: $muted-colour;
   background-color: var(--fill-colour);
   position: relative;
@@ -71,13 +73,13 @@ export default {
 }
 
 .orbit {
-  width: var(--sol-diameter);
-  height: var(--sol-diameter);
+  width: var(--orbit-diameter);
+  height: var(--orbit-diameter);
   border-radius: 50%;
   border: 1px solid $muted-colour;
   z-index: -999;
   position: absolute;
-  top: calc(var(--diameter-vw) / 2 - var(--sol-diameter) / 2);
+  top: calc(var(--diameter-vw) / 2 - var(--orbit-diameter) / 2);
   right: calc(var(--diameter-vw) / 2);
   animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal both;
 }
@@ -124,7 +126,7 @@ a {
 }
 
 @media (max-width: 970px) {
-  .planet {
+  .satellite {
     width: var(--diameter-vh);
     height: var(--diameter-vh);
     bottom: var(--orbit-radius);
@@ -147,22 +149,22 @@ a {
   }
 
   .orbit {
-    width: calc(var(--sol-diameter) / 2);
-    height: calc(var(--sol-diameter) / 2);
+    width: calc(var(--orbit-diameter) / 2);
+    height: calc(var(--orbit-diameter) / 2);
     top: auto;
-    right: calc(var(--diameter-vh) / 2 - var(--sol-diameter) / 4);
+    right: calc(var(--diameter-vh) / 2 - var(--orbit-diameter) / 4);
     bottom: calc(var(--diameter-vh) / 2);
   }
 }
 
 @media (max-width: 405px) {
-  .planet h2 {
+  .satellite h2 {
     font-size: 1.15rem;
   }
 }
 
 @media (max-width: 370px) {
-  .planet h2 {
+  .satellite h2 {
     left: calc(var(--diameter-vh) / 2 + 10px);
   }
 }

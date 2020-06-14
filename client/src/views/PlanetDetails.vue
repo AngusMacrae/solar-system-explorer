@@ -9,7 +9,7 @@ export default {
   name: 'PlanetDetails',
   data() {
     return {
-      json_data: fetch('http://localhost:5000/api/planets/' + this.$route.params.bodyName).then(response => response.json()),
+      json_data: fetch('http://localhost:5000/api/planet/' + this.$route.params.bodyName).then(response => response.json()),
     };
   },
   mounted() {
