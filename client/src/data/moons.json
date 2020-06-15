@@ -16,5 +16,107 @@
         "planet": "Mars",
         "bulkColour": "#cb34ea",
         "diameter": 50
+    },
+    {
+        "name": "Io",
+        "planet": "Jupiter",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Europa",
+        "planet": "Jupiter",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Ganymede",
+        "planet": "Jupiter",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Callisto",
+        "planet": "Jupiter",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Mimas",
+        "planet": "Saturn",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Enceladus",
+        "planet": "Saturn",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Tethys",
+        "planet": "Saturn",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Dione",
+        "planet": "Saturn",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Rhea",
+        "planet": "Saturn",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Titan",
+        "planet": "Saturn",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Iapetus",
+        "planet": "Saturn",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Miranda",
+        "planet": "Uranus",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Ariel",
+        "planet": "Uranus",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Umbriel",
+        "planet": "Uranus",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Titania",
+        "planet": "Uranus",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Oberon",
+        "planet": "Uranus",
+        "diameter": 100,
+        "bulkColour": "#fff"
+    },
+    {
+        "name": "Triton",
+        "planet": "Neptune",
+        "diameter": 100,
+        "bulkColour": "#fff"
     }
 ]
