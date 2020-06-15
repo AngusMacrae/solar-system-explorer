@@ -21,12 +21,16 @@ export default {
 .planet-system .moon {
   width: 0;
   height: 0;
+  opacity: 0;
+  margin: 0;
   transition: all 0.2s;
 }
 
 .planet-system.expanded .moon {
   width: var(--diameter);
   height: var(--diameter);
+  opacity: 1;
+  margin: 2vw;
 }
 
 .moon {

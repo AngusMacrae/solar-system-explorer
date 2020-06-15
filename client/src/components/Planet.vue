@@ -56,13 +56,10 @@ export default {
   position: relative;
 }
 
-.other-expanded {
-  display: none;
-}
-
 .other-expanded .planet {
   width: 0;
   height: 0;
+  opacity: 0;
 }
 
 .expanded .planet {
@@ -84,7 +81,7 @@ export default {
   justify-content: flex-end;
   text-align: center;
   transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
-  transition: transform 0.2s ease, width 0.2s, height 0.2s;
+  transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
   // animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--transition-delay) + 1.5s) 1 normal backwards;
 
   &:hover {
@@ -101,7 +98,8 @@ export default {
   }
 }
 
-.expanded .orbit {
+.expanded .orbit,
+.other-expanded .orbit {
   opacity: 0;
 }
 
@@ -114,6 +112,7 @@ export default {
   position: absolute;
   top: calc(var(--diameter-vw) / 2 - var(--orbit-diameter) / 2);
   right: calc(var(--diameter-vw) / 2);
+  transition: opacity 0.2s ease;
   // animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal both;
 }
 
