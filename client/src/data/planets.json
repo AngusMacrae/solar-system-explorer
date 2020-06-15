@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Mercury",
+        "bulkColour": "#DBCECA",
+        "diameter_ss": 25,
+        "diameter_ps": 300
+    },
+    {
+        "name": "Venus",
+        "bulkColour": "#8B7D82",
+        "diameter_ss": 55,
+        "diameter_ps": 300
+    },
+    {
+        "name": "Earth",
+        "bulkColour": "#6b93d6",
+        "diameter_ss": 60,
+        "diameter_ps": 300
+    },
+    {
+        "name": "Mars",
+        "bulkColour": "#bc2731",
+        "diameter_ss": 35,
+        "diameter_ps": 300
+    },
+    {
+        "name": "Jupiter",
+        "bulkColour": "#d8ca9d",
+        "diameter_ss": 250,
+        "diameter_ps": 300
+    },
+    {
+        "name": "Saturn",
+        "bulkColour": "#ab604a",
+        "diameter_ss": 200,
+        "diameter_ps": 300
+    },
+    {
+        "name": "Uranus",
+        "bulkColour": "#bbe1e4",
+        "diameter_ss": 100,
+        "diameter_ps": 300
+    },
+    {
+        "name": "Neptune",
+        "bulkColour": "#73ACAC",
+        "diameter_ss": 100,
+        "diameter_ps": 300
+    }
+]
