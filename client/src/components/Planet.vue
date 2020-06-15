@@ -1,22 +1,31 @@
 <template>
-  <div class="wrapper" :style="cssVars">
-    <div class="orbit"></div>
-    <router-link :to="path">
-      <div class="satellite">
-        <h2>{{ name }}</h2>
-        <!-- <div class="ring"></div> -->
-      </div>
-    </router-link>
+  <div class="planet-system" :style="cssVars" @click="$emit('toggle', $event.target)" :class="{ expanded: expanded, 'other-expanded': otherExpanded }">
+    <div class="planet-wrapper">
+      <div class="orbit"></div>
+      <router-link :to="path" :event="expanded ? 'click' : ''">
+        <div class="planet">
+          <h2>{{ name }}</h2>
+          <!-- <div class="ring"></div> -->
+        </div>
+      </router-link>
+    </div>
+    <Moon v-for="(moon, index) in moons" :key="index" :name="moon.name" :fillColour="moon.bulkColour" :diameter="moon.diameter" />
   </div>
 </template>
 
 <script>
+import Moon from '@/components/Moon.vue';
+import moons_list from '@/data/moons.json';
+
 export default {
-  name: 'Satellite',
-  props: ['name', 'fillColour', 'diameter', 'orbitDiameter', 'transitionDelay', 'flexOrder'],
+  name: 'Planet',
+  props: ['name', 'fillColour', 'diameter', 'orbitDiameter', 'transitionDelay', 'expanded', 'otherExpanded'],
   computed: {
     path() {
-      return '/' + this.name;
+      return '/planet/' + this.name;
+    },
+    moons() {
+      return moons_list.filter(moon => moon.planet == this.name);
     },
     cssVars() {
       return {
@@ -26,9 +35,11 @@ export default {
         '--orbit-diameter': this.orbitDiameter + 'px',
         '--orbit-radius': this.orbitDiameter / 2 + 'px',
         '--transition-delay': this.transitionDelay + 's',
-        '--flex-order': this.flexOrder,
       };
     },
+  },
+  components: {
+    Moon,
   },
 };
 </script>
@@ -36,12 +47,27 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables';
 
-.wrapper {
-  position: relative;
-  order: var(--flex-order);
+.planet-system {
+  display: flex;
+  align-items: center;
 }
 
-.satellite {
+.planet-wrapper {
+  position: relative;
+}
+
+.other-expanded .planet {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+.expanded .planet {
+  width: 20vw;
+  height: 20vw;
+}
+
+.planet {
   color: $muted-colour;
   background-color: var(--fill-colour);
   position: relative;
@@ -55,8 +81,8 @@ export default {
   justify-content: flex-end;
   text-align: center;
   transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
-  transition: transform 0.2s ease;
-  // animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--transition-delay) + 1.5s) 1 normal backwards;
+  transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+  animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--transition-delay) + 1.5s) 1 normal backwards;
 
   &:hover {
     transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg) scale(1.02);
@@ -68,8 +94,13 @@ export default {
     position: relative;
     top: 40px;
     background-color: $bg-colour;
-    // animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 3s) 1 normal both;
+    animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 3s) 1 normal backwards;
   }
+}
+
+.expanded .orbit,
+.other-expanded .orbit {
+  opacity: 0;
 }
 
 .orbit {
@@ -81,7 +112,8 @@ export default {
   position: absolute;
   top: calc(var(--diameter-vw) / 2 - var(--orbit-diameter) / 2);
   right: calc(var(--diameter-vw) / 2);
-  // animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal both;
+  transition: opacity 0.2s ease;
+  animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal backwards;
 }
 
 a {
@@ -126,7 +158,7 @@ a {
 }
 
 @media (max-width: 970px) {
-  .satellite {
+  .planet {
     width: var(--diameter-vh);
     height: var(--diameter-vh);
     bottom: var(--orbit-radius);
@@ -158,13 +190,13 @@ a {
 }
 
 @media (max-width: 405px) {
-  .satellite h2 {
+  .planet h2 {
     font-size: 1.15rem;
   }
 }
 
 @media (max-width: 370px) {
-  .satellite h2 {
+  .planet h2 {
     left: calc(var(--diameter-vh) / 2 + 10px);
   }
 }

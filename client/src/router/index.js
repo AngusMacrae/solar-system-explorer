@@ -11,14 +11,6 @@ const routes = [
     component: SolarSystem,
   },
   {
-    path: '/:bodyName',
-    name: 'PlanetSystem',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "planetSystem" */ '../views/PlanetSystem.vue'),
-  },
-  {
     path: '/planet/:bodyName',
     name: 'PlanetDetails',
     component: () => import(/* webpackChunkName: "planetDetails" */ '../views/PlanetDetails.vue'),
