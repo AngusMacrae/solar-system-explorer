@@ -3,18 +3,18 @@
         "name": "Moon",
         "planet": "Earth",
         "bulkColour": "#DBCECA",
-        "diameter_ps": 200
+        "diameter": 200
     },
     {
         "name": "Phobos",
         "planet": "Mars",
         "bulkColour": "#DBCECA",
-        "diameter_ps": 75
+        "diameter": 75
     },
     {
         "name": "Deimos",
         "planet": "Mars",
         "bulkColour": "#cb34ea",
-        "diameter_ps": 50
+        "diameter": 50
     }
 ]

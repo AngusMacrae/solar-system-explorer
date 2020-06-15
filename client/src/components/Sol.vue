@@ -32,7 +32,12 @@ export default {
 .wrapper {
   position: absolute;
   right: 92vw;
+  transition: right 0.2s ease;
   // animation: slide-in-left 1s ease-out 0.5s 1 normal both;
+}
+
+.wrapper.planet-expanded {
+  right: 100vw;
 }
 
 .body {

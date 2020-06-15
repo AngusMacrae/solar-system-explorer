@@ -1,29 +1,31 @@
 <template>
-  <div class="planet-wrapper" :style="cssVars">
-    <div class="orbit"></div>
-    <router-link :to="path" :event="clickable ? 'click' : ''">
-      <div class="planet">
-        <h2>{{ name }}</h2>
-        <!-- <div class="ring"></div> -->
-      </div>
-    </router-link>
-    <Moon v-for="(moon, index) in moons" :key="index" />
+  <div class="planet-system" :style="cssVars" @click="$emit('toggle', $event.target)" :class="{ expanded: expanded, 'other-expanded': otherExpanded }">
+    <div class="planet-wrapper">
+      <div class="orbit"></div>
+      <router-link :to="path" :event="expanded ? 'click' : ''">
+        <div class="planet">
+          <h2>{{ name }}</h2>
+          <!-- <div class="ring"></div> -->
+        </div>
+      </router-link>
+    </div>
+    <Moon v-for="(moon, index) in moons" :key="index" :name="moon.name" :fillColour="moon.bulkColour" :diameter="moon.diameter" />
   </div>
 </template>
 
 <script>
 import Moon from '@/components/Moon.vue';
-import moons from '@/data/moons.json';
+import moons_list from '@/data/moons.json';
 
 export default {
   name: 'Planet',
-  props: ['name', 'fillColour', 'diameter', 'orbitDiameter', 'transitionDelay'],
+  props: ['name', 'fillColour', 'diameter', 'orbitDiameter', 'transitionDelay', 'expanded', 'otherExpanded'],
   computed: {
     path() {
-      return '/' + this.name;
+      return '/planet/' + this.name;
     },
     moons() {
-      return moons.filter(moon => moon.planet == this.name);
+      return moons_list.filter(moon => moon.planet == this.name);
     },
     cssVars() {
       return {
@@ -45,8 +47,27 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables';
 
+.planet-system {
+  display: flex;
+  align-items: center;
+}
+
 .planet-wrapper {
   position: relative;
+}
+
+.other-expanded {
+  display: none;
+}
+
+.other-expanded .planet {
+  width: 0;
+  height: 0;
+}
+
+.expanded .planet {
+  width: 20vw;
+  height: 20vw;
 }
 
 .planet {
@@ -63,7 +84,7 @@ export default {
   justify-content: flex-end;
   text-align: center;
   transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, width 0.2s, height 0.2s;
   // animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--transition-delay) + 1.5s) 1 normal backwards;
 
   &:hover {
@@ -78,6 +99,10 @@ export default {
     background-color: $bg-colour;
     // animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 3s) 1 normal both;
   }
+}
+
+.expanded .orbit {
+  opacity: 0;
 }
 
 .orbit {
