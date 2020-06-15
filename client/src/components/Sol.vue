@@ -2,7 +2,7 @@
   <div class="wrapper">
     <router-link :to="path">
       <div class="body" :style="cssVars">
-        <h2>{{name}}</h2>
+        <h2>{{ name }}</h2>
       </div>
     </router-link>
   </div>
@@ -10,28 +10,29 @@
 
 <script>
 export default {
-  name: "Sol",
-  props: ["name", "fillColour", "diameter"],
+  name: 'Sol',
+  props: ['name', 'fillColour', 'diameter'],
   computed: {
     path() {
-      return "/body/" + this.name;
+      return '/body/' + this.name;
     },
     cssVars() {
       return {
-        "--fill-colour": this.fillColour,
-        "--diameter": this.diameter + "px"
+        '--fill-colour': this.fillColour,
+        '--diameter': this.diameter + 'px',
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/variables";
+@import '../scss/variables';
 
 .wrapper {
   position: absolute;
-  animation: slide-in-left 1s ease-out 0.5s 1 normal both;
+  right: 92vw;
+  // animation: slide-in-left 1s ease-out 0.5s 1 normal both;
 }
 
 .body {
@@ -56,7 +57,7 @@ a {
     transform: translateX(50%);
     font-size: 1.3rem;
     transition: transform 0.2s;
-    animation: fade-in 0.3s ease-out 1.7s 1 normal both;
+    // animation: fade-in 0.3s ease-out 1.7s 1 normal both;
   }
 
   &:hover h2 {

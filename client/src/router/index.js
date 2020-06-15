@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import SolarSystem from '../views/SolarSystem.vue';
+import SolarSystem from '@/views/SolarSystem.vue';
 
 Vue.use(VueRouter);
 

@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper" :style="cssVars">
-    <div class="orbit" :style="cssVars"></div>
+    <div class="orbit"></div>
     <router-link :to="path">
-      <div class="satellite" :style="cssVars">
+      <div class="satellite">
         <h2>{{ name }}</h2>
         <!-- <div class="ring"></div> -->
       </div>
@@ -24,6 +24,7 @@ export default {
         '--diameter-vw': this.diameter / 15 + 'vw',
         '--diameter-vh': this.diameter / 15 + 'vh',
         '--orbit-diameter': this.orbitDiameter + 'px',
+        '--orbit-radius': this.orbitDiameter / 2 + 'px',
         '--transition-delay': this.transitionDelay + 's',
         '--flex-order': this.flexOrder,
       };
@@ -41,7 +42,6 @@ export default {
 }
 
 .satellite {
-  --orbit-radius: calc(var(--orbit-diameter) / 2);
   color: $muted-colour;
   background-color: var(--fill-colour);
   position: relative;
@@ -56,7 +56,7 @@ export default {
   text-align: center;
   transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
   transition: transform 0.2s ease;
-  animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--transition-delay) + 1.5s) 1 normal backwards;
+  // animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--transition-delay) + 1.5s) 1 normal backwards;
 
   &:hover {
     transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg) scale(1.02);
@@ -68,7 +68,7 @@ export default {
     position: relative;
     top: 40px;
     background-color: $bg-colour;
-    animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 3s) 1 normal both;
+    // animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 3s) 1 normal both;
   }
 }
 
@@ -81,7 +81,7 @@ export default {
   position: absolute;
   top: calc(var(--diameter-vw) / 2 - var(--orbit-diameter) / 2);
   right: calc(var(--diameter-vw) / 2);
-  animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal both;
+  // animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal both;
 }
 
 a {
