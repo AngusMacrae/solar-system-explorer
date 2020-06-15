@@ -82,7 +82,7 @@ export default {
   text-align: center;
   transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
   transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
-  // animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--transition-delay) + 1.5s) 1 normal backwards;
+  animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--transition-delay) + 1.5s) 1 normal backwards;
 
   &:hover {
     transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg) scale(1.02);
@@ -94,7 +94,7 @@ export default {
     position: relative;
     top: 40px;
     background-color: $bg-colour;
-    // animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 3s) 1 normal both;
+    animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 3s) 1 normal backwards;
   }
 }
 
@@ -113,7 +113,7 @@ export default {
   top: calc(var(--diameter-vw) / 2 - var(--orbit-diameter) / 2);
   right: calc(var(--diameter-vw) / 2);
   transition: opacity 0.2s ease;
-  // animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal both;
+  animation: fade-in 1s ease-out calc(var(--transition-delay) + 2s) 1 normal backwards;
 }
 
 a {

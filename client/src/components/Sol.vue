@@ -33,7 +33,7 @@ export default {
   position: absolute;
   right: 92vw;
   transition: right 0.2s ease;
-  // animation: slide-in-left 1s ease-out 0.5s 1 normal both;
+  animation: slide-in-left 1s ease-out 0.5s 1 normal backwards;
 }
 
 .wrapper.planet-expanded {
@@ -62,7 +62,7 @@ a {
     transform: translateX(50%);
     font-size: 1.3rem;
     transition: transform 0.2s;
-    // animation: fade-in 0.3s ease-out 1.7s 1 normal both;
+    animation: fade-in 0.3s ease-out 1.7s 1 normal backwards;
   }
 
   &:hover h2 {
