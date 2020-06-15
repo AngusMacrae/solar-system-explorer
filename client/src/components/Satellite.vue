@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper" :style="cssVars">
-    <div class="orbit" :style="cssVars"></div>
+    <div class="orbit"></div>
     <router-link :to="path">
-      <div class="satellite" :style="cssVars">
+      <div class="satellite">
         <h2>{{ name }}</h2>
         <!-- <div class="ring"></div> -->
       </div>
@@ -24,6 +24,7 @@ export default {
         '--diameter-vw': this.diameter / 15 + 'vw',
         '--diameter-vh': this.diameter / 15 + 'vh',
         '--orbit-diameter': this.orbitDiameter + 'px',
+        '--orbit-radius': this.orbitDiameter / 2 + 'px',
         '--transition-delay': this.transitionDelay + 's',
         '--flex-order': this.flexOrder,
       };
@@ -41,7 +42,6 @@ export default {
 }
 
 .satellite {
-  --orbit-radius: calc(var(--orbit-diameter) / 2);
   color: $muted-colour;
   background-color: var(--fill-colour);
   position: relative;
