@@ -1,22 +1,29 @@
 <template>
-  <div class="wrapper" :style="cssVars">
+  <div class="planet-wrapper" :style="cssVars">
     <div class="orbit"></div>
-    <router-link :to="path">
-      <div class="satellite">
+    <router-link :to="path" :event="clickable ? 'click' : ''">
+      <div class="planet">
         <h2>{{ name }}</h2>
         <!-- <div class="ring"></div> -->
       </div>
     </router-link>
+    <Moon v-for="(moon, index) in moons" :key="index" />
   </div>
 </template>
 
 <script>
+import Moon from '@/components/Moon.vue';
+import moons from '@/data/moons.json';
+
 export default {
-  name: 'Satellite',
-  props: ['name', 'fillColour', 'diameter', 'orbitDiameter', 'transitionDelay', 'flexOrder'],
+  name: 'Planet',
+  props: ['name', 'fillColour', 'diameter', 'orbitDiameter', 'transitionDelay'],
   computed: {
     path() {
       return '/' + this.name;
+    },
+    moons() {
+      return moons.filter(moon => moon.planet == this.name);
     },
     cssVars() {
       return {
@@ -26,9 +33,11 @@ export default {
         '--orbit-diameter': this.orbitDiameter + 'px',
         '--orbit-radius': this.orbitDiameter / 2 + 'px',
         '--transition-delay': this.transitionDelay + 's',
-        '--flex-order': this.flexOrder,
       };
     },
+  },
+  components: {
+    Moon,
   },
 };
 </script>
@@ -36,12 +45,11 @@ export default {
 <style lang="scss" scoped>
 @import '../scss/variables';
 
-.wrapper {
+.planet-wrapper {
   position: relative;
-  order: var(--flex-order);
 }
 
-.satellite {
+.planet {
   color: $muted-colour;
   background-color: var(--fill-colour);
   position: relative;
@@ -126,7 +134,7 @@ a {
 }
 
 @media (max-width: 970px) {
-  .satellite {
+  .planet {
     width: var(--diameter-vh);
     height: var(--diameter-vh);
     bottom: var(--orbit-radius);
@@ -158,13 +166,13 @@ a {
 }
 
 @media (max-width: 405px) {
-  .satellite h2 {
+  .planet h2 {
     font-size: 1.15rem;
   }
 }
 
 @media (max-width: 370px) {
-  .satellite h2 {
+  .planet h2 {
     left: calc(var(--diameter-vh) / 2 + 10px);
   }
 }
