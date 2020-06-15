@@ -4,5 +4,17 @@
         "planet": "Earth",
         "bulkColour": "#DBCECA",
         "diameter_ps": 200
+    },
+    {
+        "name": "Phobos",
+        "planet": "Mars",
+        "bulkColour": "#DBCECA",
+        "diameter_ps": 75
+    },
+    {
+        "name": "Deimos",
+        "planet": "Mars",
+        "bulkColour": "#cb34ea",
+        "diameter_ps": 50
     }
 ]
