@@ -8,19 +8,19 @@
 
 <script>
 export default {
-  name: 'Moon',
-  props: ['name', 'fillColour', 'diameter'],
+  name: "Moon",
+  props: ["name", "fillColour", "diameter"],
   computed: {
     path() {
       return "/moon/" + this.name;
     },
     cssVars() {
       return {
-        '--diameter': this.diameter / 15 + 'vw',
-        '--fill-colour': this.fillColour,
+        "--diameter": this.diameter / 15 + "vw",
+        "--fill-colour": this.fillColour
       };
-    },
-  },
+    }
+  }
 };
 </script>
 

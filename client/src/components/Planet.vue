@@ -1,5 +1,10 @@
 <template>
-  <div class="planet-system" :style="cssVars" @click="$emit('toggle', $event.target)" :class="{ expanded: expanded, 'other-expanded': otherExpanded }">
+  <div
+    class="planet-system"
+    :style="cssVars"
+    @click="$emit('toggle', $event.target)"
+    :class="{ expanded: expanded, 'other-expanded': otherExpanded }"
+  >
     <div class="planet-wrapper">
       <div class="orbit"></div>
       <router-link :to="path" :event="expanded ? 'click' : ''">
@@ -9,43 +14,59 @@
         </div>
       </router-link>
     </div>
-    <Moon v-for="(moon, index) in moons" :key="index" :name="moon.name" :fillColour="moon.bulkColour" :diameter="moon.diameter" />
+    <Moon
+      v-for="(moon, index) in moons"
+      :key="index"
+      :name="moon.name"
+      :fillColour="moon.bulkColour"
+      :diameter="moon.diameter"
+    />
   </div>
 </template>
 
 <script>
-import Moon from '@/components/Moon.vue';
-import moons_list from '@/data/moons.json';
+import Moon from "@/components/Moon.vue";
+import moons_list from "@/data/moons.json";
 
 export default {
-  name: 'Planet',
-  props: ['name', 'fillColour', 'diameter', 'orbitDiameter', 'transitionDelay', 'expanded', 'otherExpanded'],
+  name: "Planet",
+  props: [
+    "index",
+    "name",
+    "fillColour",
+    "diameter",
+    "orbitDiameter",
+    "transitionDelay",
+    "expanded",
+    "otherExpanded"
+  ],
   computed: {
     path() {
-      return '/planet/' + this.name;
+      return "/planet/" + this.name;
     },
     moons() {
       return moons_list.filter(moon => moon.planet == this.name);
     },
     cssVars() {
       return {
-        '--fill-colour': this.fillColour,
-        '--diameter-vw': this.diameter / 15 + 'vw',
-        '--diameter-vh': this.diameter / 15 + 'vh',
-        '--orbit-diameter': this.orbitDiameter + 'px',
-        '--orbit-radius': this.orbitDiameter / 2 + 'px',
-        '--transition-delay': this.transitionDelay + 's',
+        "--fill-colour": this.fillColour,
+        "--diameter-vw": this.diameter / 15 + "vw",
+        "--diameter-vh": this.diameter / 15 + "vh",
+        "--orbit-diameter": this.orbitDiameter + "px",
+        "--orbit-radius": this.orbitDiameter / 2 + "px",
+        "--transition-delay": this.transitionDelay + "s",
+        "--flex-order": this.index > 4 ? 1 : 0
       };
-    },
+    }
   },
   components: {
-    Moon,
-  },
+    Moon
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/variables';
+@import "../scss/variables";
 
 .planet-system {
   display: flex;
@@ -54,6 +75,7 @@ export default {
 
 .planet-wrapper {
   position: relative;
+  order: var(--flex-order);
 }
 
 .other-expanded .planet {
@@ -85,7 +107,8 @@ export default {
   animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--transition-delay) + 1.5s) 1 normal backwards;
 
   &:hover {
-    transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg) scale(1.02);
+    transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg)
+      scale(1.02);
     color: $primary-colour;
   }
 
@@ -169,14 +192,16 @@ a {
     animation: orbit-in-top 1.5s cubic-bezier(0.075, 0.82, 0.165, 1) calc(var(--transition-delay) + 0.5s) 1 normal backwards;
 
     &:hover {
-      transform: rotate(0deg) translateY(var(--orbit-radius)) rotate(0deg) scale(1.02);
+      transform: rotate(0deg) translateY(var(--orbit-radius)) rotate(0deg)
+        scale(1.02);
     }
 
     h2 {
       top: auto;
       transform: translateX(50%);
       left: calc(var(--diameter-vh) / 2 + 20px);
-      animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 2s) 1 normal both;
+      animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 2s) 1
+        normal both;
     }
   }
 

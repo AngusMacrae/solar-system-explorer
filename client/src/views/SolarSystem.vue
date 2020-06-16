@@ -28,18 +28,18 @@
 </template>
 
 <script>
-import Sol from '@/components/Sol.vue';
-import Planet from '@/components/Planet.vue';
-import sol from '@/data/sol.json';
-import planets from '@/data/planets.json';
+import Sol from "@/components/Sol.vue";
+import Planet from "@/components/Planet.vue";
+import sol from "@/data/sol.json";
+import planets from "@/data/planets.json";
 
 export default {
-  name: 'SolarSystem',
+  name: "SolarSystem",
   data() {
     return {
       sol,
       planets,
-      expanded: null,
+      expanded: null
     };
   },
   computed: {
@@ -54,15 +54,15 @@ export default {
       this.expanded = target_planet_index;
     },
     collapseAll(target_element) {
-      if (target_element.id == 'solar-system') {
+      if (target_element.id == "solar-system") {
         this.expanded = null;
       }
-    },
+    }
   },
   components: {
     Sol,
-    Planet,
-  },
+    Planet
+  }
 };
 </script>
 
