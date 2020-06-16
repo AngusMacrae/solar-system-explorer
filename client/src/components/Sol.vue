@@ -10,30 +10,30 @@
 
 <script>
 export default {
-  name: 'Sol',
-  props: ['name', 'fillColour', 'diameter'],
+  name: "Sol",
+  props: ["name", "fillColour", "diameter"],
   computed: {
     path() {
-      return '/body/' + this.name;
+      return "/body/" + this.name;
     },
     cssVars() {
       return {
-        '--fill-colour': this.fillColour,
-        '--diameter': this.diameter + 'px',
+        "--fill-colour": this.fillColour,
+        "--diameter": this.diameter + "px"
       };
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-@import '../scss/variables';
+@import "../scss/variables";
 
 .wrapper {
   position: absolute;
   right: 92vw;
   transition: right 0.2s ease;
-  animation: slide-in-left 1s ease-out 0.5s 1 normal backwards;
+  animation: slide-in-left 0.5s ease-out 0.5s 1 normal backwards;
 }
 
 .wrapper.planet-expanded {
@@ -62,7 +62,7 @@ a {
     transform: translateX(50%);
     font-size: 1.3rem;
     transition: transform 0.2s;
-    animation: fade-in 0.3s ease-out 1.7s 1 normal backwards;
+    animation: fade-in 0.5s ease-out 1s 1 normal backwards;
   }
 
   &:hover h2 {

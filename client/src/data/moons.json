@@ -2,121 +2,121 @@
     {
         "name": "Moon",
         "planet": "Earth",
-        "bulkColour": "#DBCECA",
-        "diameter": 200
+        "bulkColour": "#e3d4d1",
+        "diameter": 150
     },
     {
         "name": "Phobos",
         "planet": "Mars",
-        "bulkColour": "#DBCECA",
-        "diameter": 75
+        "bulkColour": "#8e7d76",
+        "diameter": 10
     },
     {
         "name": "Deimos",
         "planet": "Mars",
-        "bulkColour": "#cb34ea",
-        "diameter": 50
+        "bulkColour": "#c6b697",
+        "diameter": 5
     },
     {
         "name": "Io",
         "planet": "Jupiter",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 50,
+        "bulkColour": "#9f9372"
     },
     {
         "name": "Europa",
         "planet": "Jupiter",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 40,
+        "bulkColour": "#dee4dd"
     },
     {
         "name": "Ganymede",
         "planet": "Jupiter",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 60,
+        "bulkColour": "#a59583"
     },
     {
         "name": "Callisto",
         "planet": "Jupiter",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 55,
+        "bulkColour": "#72604b"
     },
     {
         "name": "Mimas",
         "planet": "Saturn",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 10,
+        "bulkColour": "#a9a9a9"
     },
     {
         "name": "Enceladus",
         "planet": "Saturn",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 20,
+        "bulkColour": "#eee5ef"
     },
     {
         "name": "Tethys",
         "planet": "Saturn",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 25,
+        "bulkColour": "#afac98"
     },
     {
         "name": "Dione",
         "planet": "Saturn",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 25,
+        "bulkColour": "#c3c3c3"
     },
     {
         "name": "Rhea",
         "planet": "Saturn",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 30,
+        "bulkColour": "#bcbcbc"
     },
     {
         "name": "Titan",
         "planet": "Saturn",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 70,
+        "bulkColour": "#dbc360"
     },
     {
         "name": "Iapetus",
         "planet": "Saturn",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 30,
+        "bulkColour": "#b9bbb6"
     },
     {
         "name": "Miranda",
         "planet": "Uranus",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 15,
+        "bulkColour": "#9e9e9e"
     },
     {
         "name": "Ariel",
         "planet": "Uranus",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 20,
+        "bulkColour": "#98866b"
     },
     {
         "name": "Umbriel",
         "planet": "Uranus",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 20,
+        "bulkColour": "#908982"
     },
     {
         "name": "Titania",
         "planet": "Uranus",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 23,
+        "bulkColour": "#c4b7aa"
     },
     {
         "name": "Oberon",
         "planet": "Uranus",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 25,
+        "bulkColour": "#bbaba1"
     },
     {
         "name": "Triton",
         "planet": "Neptune",
-        "diameter": 100,
-        "bulkColour": "#fff"
+        "diameter": 25,
+        "bulkColour": "#b5a9b5"
     }
 ]
