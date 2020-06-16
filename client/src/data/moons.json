@@ -20,25 +20,25 @@
     {
         "name": "Io",
         "planet": "Jupiter",
-        "diameter": 50,
+        "diameter": 35,
         "bulkColour": "#9f9372"
     },
     {
         "name": "Europa",
         "planet": "Jupiter",
-        "diameter": 40,
+        "diameter": 30,
         "bulkColour": "#dee4dd"
     },
     {
         "name": "Ganymede",
         "planet": "Jupiter",
-        "diameter": 60,
+        "diameter": 45,
         "bulkColour": "#a59583"
     },
     {
         "name": "Callisto",
         "planet": "Jupiter",
-        "diameter": 55,
+        "diameter": 40,
         "bulkColour": "#72604b"
     },
     {
