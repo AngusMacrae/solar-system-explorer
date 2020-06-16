@@ -78,7 +78,7 @@ export default {
   padding-left: 9vw;
   padding-right: 0;
   overflow: hidden;
-  transition: padding-right 0.2s;
+  transition: padding-right 0.5s;
 }
 
 #solar-system.child-expanded {
