@@ -76,8 +76,9 @@ export default {
   justify-content: space-around;
   position: relative;
   padding-left: 9vw;
+  padding-right: 0;
   overflow: hidden;
-  transition: padding-left 0.2s;
+  transition: padding-right 0.2s;
 }
 
 #solar-system.child-expanded {

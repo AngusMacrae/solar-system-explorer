@@ -70,7 +70,18 @@ export default {
 
 .planet-system {
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
+  width: var(--diameter-vw);
+  transition: width 0.5s ease-in-out;
+}
+
+.planet-system.expanded {
+  width: 82vw;
+}
+
+.planet-system.other-expanded {
+  width: 0;
 }
 
 .planet-wrapper {
