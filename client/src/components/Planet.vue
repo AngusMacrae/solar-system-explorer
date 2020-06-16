@@ -49,6 +49,7 @@ export default {
     },
     cssVars() {
       return {
+        "--svg-url": `url(${require("@/assets/" + this.name + ".svg")})`,
         "--fill-colour": this.fillColour,
         "--diameter-vw": this.diameter / 15 + "vw",
         "--diameter-vh": this.diameter / 15 + "vh",
@@ -103,6 +104,7 @@ export default {
 .planet {
   color: $muted-colour;
   background-color: var(--fill-colour);
+  background-image: var(--svg-url);
   position: relative;
   right: var(--orbit-radius);
   border-radius: 50%;
