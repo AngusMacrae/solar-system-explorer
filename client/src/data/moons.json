@@ -86,31 +86,31 @@
     {
         "name": "Miranda",
         "planet": "Uranus",
-        "diameter": 15,
+        "diameter": 10,
         "bulkColour": "#9e9e9e"
     },
     {
         "name": "Ariel",
         "planet": "Uranus",
-        "diameter": 20,
+        "diameter": 18,
         "bulkColour": "#98866b"
     },
     {
         "name": "Umbriel",
         "planet": "Uranus",
-        "diameter": 20,
+        "diameter": 18,
         "bulkColour": "#908982"
     },
     {
         "name": "Titania",
         "planet": "Uranus",
-        "diameter": 23,
+        "diameter": 24,
         "bulkColour": "#c4b7aa"
     },
     {
         "name": "Oberon",
         "planet": "Uranus",
-        "diameter": 25,
+        "diameter": 23,
         "bulkColour": "#bbaba1"
     },
     {
