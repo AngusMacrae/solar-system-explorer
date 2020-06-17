@@ -44,43 +44,43 @@
     {
         "name": "Mimas",
         "planet": "Saturn",
-        "diameter": 10,
+        "diameter": 7,
         "bulkColour": "#a9a9a9"
     },
     {
         "name": "Enceladus",
         "planet": "Saturn",
-        "diameter": 20,
+        "diameter": 14,
         "bulkColour": "#eee5ef"
     },
     {
         "name": "Tethys",
         "planet": "Saturn",
-        "diameter": 25,
+        "diameter": 17,
         "bulkColour": "#afac98"
     },
     {
         "name": "Dione",
         "planet": "Saturn",
-        "diameter": 25,
+        "diameter": 17,
         "bulkColour": "#c3c3c3"
     },
     {
         "name": "Rhea",
         "planet": "Saturn",
-        "diameter": 30,
+        "diameter": 21,
         "bulkColour": "#bcbcbc"
     },
     {
         "name": "Titan",
         "planet": "Saturn",
-        "diameter": 70,
+        "diameter": 50,
         "bulkColour": "#dbc360"
     },
     {
         "name": "Iapetus",
         "planet": "Saturn",
-        "diameter": 30,
+        "diameter": 21,
         "bulkColour": "#b9bbb6"
     },
     {
