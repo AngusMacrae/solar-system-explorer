@@ -2,14 +2,14 @@
   <div
     id="solar-system"
     @click="collapseAll($event.target)"
-    :class="{ 'child-expanded': expanded != null ? true : false }"
+    :class="{ 'child-expanded': expanded > -1 ? true : false }"
   >
     <h1 class="title">{{ title }}</h1>
     <Sol
       :name="sol.name"
       :fillColour="sol.bulkColour"
       :diameter="sol.diameter_ss"
-      :class="{ 'planet-expanded': expanded != null ? true : false }"
+      :class="{ 'planet-expanded': expanded > -1 ? true : false }"
     />
     <Planet
       v-for="(planet, index) in planets"
@@ -22,7 +22,7 @@
       :rings="planet.rings"
       :transitionDelay="(index * 2 + 2) / 10"
       :expanded="index == expanded ? true : false"
-      :otherExpanded="index != expanded && expanded != null ? true : false"
+      :otherExpanded="index != expanded && expanded > -1 ? true : false"
       @toggle="toggleHandler(index)"
     />
   </div>
@@ -40,14 +40,14 @@ export default {
     return {
       sol,
       planets,
-      expanded: null
+      expanded: planets.findIndex(
+        planet => planet.name == this.$route.params.bodyName
+      )
     };
   },
   computed: {
     title() {
-      return this.expanded == null
-        ? this.sol.title
-        : this.planets[this.expanded].title;
+      return this.expanded == -1 ? sol.title : planets[this.expanded].title;
     }
   },
   methods: {
@@ -56,7 +56,8 @@ export default {
     },
     collapseAll(target_element) {
       if (target_element.id == "solar-system") {
-        this.expanded = null;
+        // this.expanded = -1;
+        this.$router.push("/");
       }
     }
   },

@@ -2,7 +2,7 @@
   <div
     class="planet-system"
     :style="cssVars"
-    @click="$emit('toggle', $event.target)"
+    @click="$router.push(path)"
     :class="{ expanded: expanded, 'other-expanded': otherExpanded }"
   >
     <div class="planet-wrapper">
@@ -43,7 +43,11 @@ export default {
   ],
   computed: {
     path() {
-      return "/planet/" + this.name;
+      return this.expanded
+        ? "/planet/" + this.name
+        : !this.otherExpanded
+        ? "/system/" + this.name
+        : "/";
     },
     moons() {
       return moons_list.filter(moon => moon.planet == this.name);
