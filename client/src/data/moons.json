@@ -3,7 +3,7 @@
         "name": "Moon",
         "planet": "Earth",
         "bulkColour": "#e3d4d1",
-        "diameter": 150
+        "diameter": 100
     },
     {
         "name": "Phobos",
@@ -20,103 +20,103 @@
     {
         "name": "Io",
         "planet": "Jupiter",
-        "diameter": 50,
+        "diameter": 35,
         "bulkColour": "#9f9372"
     },
     {
         "name": "Europa",
         "planet": "Jupiter",
-        "diameter": 40,
+        "diameter": 30,
         "bulkColour": "#dee4dd"
     },
     {
         "name": "Ganymede",
         "planet": "Jupiter",
-        "diameter": 60,
+        "diameter": 45,
         "bulkColour": "#a59583"
     },
     {
         "name": "Callisto",
         "planet": "Jupiter",
-        "diameter": 55,
+        "diameter": 40,
         "bulkColour": "#72604b"
     },
     {
         "name": "Mimas",
         "planet": "Saturn",
-        "diameter": 10,
+        "diameter": 7,
         "bulkColour": "#a9a9a9"
     },
     {
         "name": "Enceladus",
         "planet": "Saturn",
-        "diameter": 20,
+        "diameter": 14,
         "bulkColour": "#eee5ef"
     },
     {
         "name": "Tethys",
         "planet": "Saturn",
-        "diameter": 25,
+        "diameter": 17,
         "bulkColour": "#afac98"
     },
     {
         "name": "Dione",
         "planet": "Saturn",
-        "diameter": 25,
+        "diameter": 17,
         "bulkColour": "#c3c3c3"
     },
     {
         "name": "Rhea",
         "planet": "Saturn",
-        "diameter": 30,
+        "diameter": 21,
         "bulkColour": "#bcbcbc"
     },
     {
         "name": "Titan",
         "planet": "Saturn",
-        "diameter": 70,
+        "diameter": 50,
         "bulkColour": "#dbc360"
     },
     {
         "name": "Iapetus",
         "planet": "Saturn",
-        "diameter": 30,
+        "diameter": 21,
         "bulkColour": "#b9bbb6"
     },
     {
         "name": "Miranda",
         "planet": "Uranus",
-        "diameter": 15,
+        "diameter": 10,
         "bulkColour": "#9e9e9e"
     },
     {
         "name": "Ariel",
         "planet": "Uranus",
-        "diameter": 20,
+        "diameter": 18,
         "bulkColour": "#98866b"
     },
     {
         "name": "Umbriel",
         "planet": "Uranus",
-        "diameter": 20,
+        "diameter": 18,
         "bulkColour": "#908982"
     },
     {
         "name": "Titania",
         "planet": "Uranus",
-        "diameter": 23,
+        "diameter": 24,
         "bulkColour": "#c4b7aa"
     },
     {
         "name": "Oberon",
         "planet": "Uranus",
-        "diameter": 25,
+        "diameter": 23,
         "bulkColour": "#bbaba1"
     },
     {
         "name": "Triton",
         "planet": "Neptune",
-        "diameter": 25,
+        "diameter": 60,
         "bulkColour": "#b5a9b5"
     }
 ]

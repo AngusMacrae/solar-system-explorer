@@ -16,6 +16,7 @@ export default {
     },
     cssVars() {
       return {
+        "--svg-url": `url(${require("@/assets/" + this.name + ".svg")})`,
         "--diameter": this.diameter / 15 + "vw",
         "--fill-colour": this.fillColour
       };
@@ -30,6 +31,7 @@ export default {
 .moon {
   border-radius: 50%;
   background-color: var(--fill-colour);
+  background-image: var(--svg-url);
   position: relative;
   transition: all 0.5s ease-in-out;
 

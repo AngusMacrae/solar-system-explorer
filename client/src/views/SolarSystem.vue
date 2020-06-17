@@ -19,6 +19,7 @@
       :fillColour="planet.bulkColour"
       :diameter="planet.diameter_ss"
       :orbitDiameter="sol.diameter_ss"
+      :rings="planet.rings"
       :transitionDelay="(index * 2 + 2) / 10"
       :expanded="index == expanded ? true : false"
       :otherExpanded="index != expanded && expanded != null ? true : false"
@@ -78,7 +79,7 @@ export default {
   padding-left: 9vw;
   padding-right: 0;
   overflow: hidden;
-  transition: padding-right 0.2s;
+  transition: padding-right 0.5s;
 }
 
 #solar-system.child-expanded {

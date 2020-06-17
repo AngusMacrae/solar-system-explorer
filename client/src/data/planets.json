@@ -4,55 +4,63 @@
         "title": "",
         "bulkColour": "#DBCECA",
         "diameter_ss": 25,
-        "diameter_ps": 300
+        "diameter_ps": 300,
+        "rings": false
     },
     {
         "name": "Venus",
         "title": "",
         "bulkColour": "#8B7D82",
         "diameter_ss": 55,
-        "diameter_ps": 300
+        "diameter_ps": 300,
+        "rings": false
     },
     {
         "name": "Earth",
         "title": "The Terran System",
         "bulkColour": "#6b93d6",
         "diameter_ss": 60,
-        "diameter_ps": 300
+        "diameter_ps": 300,
+        "rings": false
     },
     {
         "name": "Mars",
         "title": "The Martian System",
         "bulkColour": "#bc2731",
         "diameter_ss": 35,
-        "diameter_ps": 300
+        "diameter_ps": 300,
+        "rings": false
     },
     {
         "name": "Jupiter",
         "title": "The Jovian System",
         "bulkColour": "#d8ca9d",
         "diameter_ss": 250,
-        "diameter_ps": 300
+        "diameter_ps": 300,
+        "rings": false
     },
     {
         "name": "Saturn",
         "title": "The Saturnian System",
-        "bulkColour": "#ab604a",
+        "bulkColour": "#cdb277",
         "diameter_ss": 200,
-        "diameter_ps": 300
+        "diameter_ps": 300,
+        "rings": true
     },
     {
         "name": "Uranus",
         "title": "The Uranian System",
         "bulkColour": "#bbe1e4",
         "diameter_ss": 100,
-        "diameter_ps": 300
+        "diameter_ps": 300,
+        "rings": false
     },
     {
         "name": "Neptune",
         "title": "The Neptunian System",
         "bulkColour": "#73ACAC",
         "diameter_ss": 100,
-        "diameter_ps": 300
+        "diameter_ps": 300,
+        "rings": false
     }
 ]

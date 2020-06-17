@@ -10,7 +10,7 @@
       <router-link :to="path" :event="expanded ? 'click' : ''">
         <div class="planet">
           <h2>{{ name }}</h2>
-          <!-- <div class="ring"></div> -->
+          <img src="../assets/rings.svg" class="rings" v-if="rings" />
         </div>
       </router-link>
     </div>
@@ -36,6 +36,7 @@ export default {
     "fillColour",
     "diameter",
     "orbitDiameter",
+    "rings",
     "transitionDelay",
     "expanded",
     "otherExpanded"
@@ -49,6 +50,7 @@ export default {
     },
     cssVars() {
       return {
+        "--svg-url": `url(${require("@/assets/" + this.name + ".svg")})`,
         "--fill-colour": this.fillColour,
         "--diameter-vw": this.diameter / 15 + "vw",
         "--diameter-vh": this.diameter / 15 + "vh",
@@ -103,6 +105,7 @@ export default {
 .planet {
   color: $muted-colour;
   background-color: var(--fill-colour);
+  background-image: var(--svg-url);
   position: relative;
   right: var(--orbit-radius);
   border-radius: 50%;
@@ -160,14 +163,16 @@ a {
   text-decoration: none;
 }
 
-// .ring {
-//   position: absolute;
-//   border-radius: 50%;
-//   width: calc(var(--diameter-vw) * 1.2);
-//   height: calc(var(--diameter-vw) * 1.2);
-//   z-index: -99;
-//   background-color: white;
-// }
+.rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  width: 200px;
+  // width: calc(var(--diameter-vw) * 20);
+  //   z-index: -99;
+}
 
 @keyframes orbit-in-left {
   0% {
