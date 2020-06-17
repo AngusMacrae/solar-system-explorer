@@ -42,7 +42,7 @@
     {
         "name": "Saturn",
         "title": "The Saturnian System",
-        "bulkColour": "#ab604a",
+        "bulkColour": "#cdb277",
         "diameter_ss": 200,
         "diameter_ps": 300,
         "rings": true
