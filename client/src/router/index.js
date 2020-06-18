@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import SolarSystem from '@/views/SolarSystem.vue';
+// import PlanetSystem from '@/views/PlanetSystem.vue';
 
 Vue.use(VueRouter);
 
@@ -8,6 +9,11 @@ const routes = [
   {
     path: '/',
     name: 'SolarSystem',
+    component: SolarSystem,
+  },
+  {
+    path: '/system/:bodyName',
+    name: 'PlanetSystem',
     component: SolarSystem,
   },
   {

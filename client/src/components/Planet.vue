@@ -2,7 +2,7 @@
   <div
     class="planet-system"
     :style="cssVars"
-    @click="$emit('toggle', $event.target)"
+    @click="$router.push(path)"
     :class="{ expanded: expanded, 'other-expanded': otherExpanded }"
   >
     <div class="planet-wrapper">
@@ -43,7 +43,11 @@ export default {
   ],
   computed: {
     path() {
-      return "/planet/" + this.name;
+      return this.expanded
+        ? "/planet/" + this.name
+        : !this.otherExpanded
+        ? "/system/" + this.name
+        : "/";
     },
     moons() {
       return moons_list.filter(moon => moon.planet == this.name);
@@ -119,8 +123,8 @@ export default {
   transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
   transition: transform 0.5s ease-in-out, width 0.5s ease-in-out,
     height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1)
-    calc(var(--transition-delay) + 0.5s) 1 normal backwards;
+  // animation: orbit-in-left 1.5s cubic-bezier(0.075, 0.82, 0.165, 1)
+  //   calc(var(--transition-delay) + 0.5s) 1 normal backwards;
 
   &:hover {
     transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg)
@@ -133,8 +137,8 @@ export default {
     position: relative;
     top: 40px;
     background-color: $bg-colour;
-    animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 1.5s) 1
-      normal backwards;
+    // animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 1.5s) 1
+    //   normal backwards;
   }
 }
 
@@ -154,8 +158,8 @@ export default {
   top: calc(var(--diameter-vw) / 2 - var(--orbit-diameter) / 2);
   right: calc(var(--diameter-vw) / 2);
   transition: opacity 0.3s ease-in-out 0.2s;
-  animation: fade-in 1s ease-out calc(var(--transition-delay) + 1s) 1 normal
-    backwards;
+  // animation: fade-in 1s ease-out calc(var(--transition-delay) + 1s) 1 normal
+  //   backwards;
 }
 
 a {

@@ -33,7 +33,7 @@ export default {
   position: absolute;
   right: 92vw;
   transition: transform 0.3s ease;
-  animation: slide-in-left 1s ease-out 1 normal backwards;
+  // animation: slide-in-left 1s ease-out 1 normal backwards;
 }
 
 .wrapper.planet-expanded {
