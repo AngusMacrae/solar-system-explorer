@@ -56,8 +56,10 @@ export default {
       return {
         "--svg-url": `url(${require("@/assets/" + this.name + ".svg")})`,
         "--fill-colour": this.fillColour,
-        "--diameter-vw": this.diameter / 15 + "vw",
-        "--diameter-vh": this.diameter / 15 + "vh",
+        "--planet-diameter-hor": this.diameter / 15 + "vw",
+        "--planet-radius-hor": this.diameter / 30 + "vw",
+        "--planet-diameter-ver": this.diameter / 15 + "vh",
+        "--planet-radius-ver": this.diameter / 30 + "vh",
         "--orbit-diameter": this.orbitDiameter + "px",
         "--orbit-radius": this.orbitDiameter / 2 + "px",
         "--transition-delay": this.transitionDelay + "s",
@@ -78,7 +80,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: var(--diameter-vw);
+  width: var(--planet-diameter-hor);
   transition: width 0.5s ease-in-out;
 }
 
@@ -113,8 +115,8 @@ export default {
   position: relative;
   right: var(--orbit-radius);
   border-radius: 50%;
-  width: var(--diameter-vw);
-  height: var(--diameter-vw);
+  width: var(--planet-diameter-hor);
+  height: var(--planet-diameter-hor);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -155,8 +157,8 @@ export default {
   border: 1px solid $muted-colour;
   z-index: -999;
   position: absolute;
-  top: calc(var(--diameter-vw) / 2 - var(--orbit-diameter) / 2);
-  right: calc(var(--diameter-vw) / 2);
+  top: calc(var(--planet-radius-hor) - var(--orbit-radius));
+  right: var(--planet-radius-hor);
   transition: opacity 0.3s ease-in-out 0.2s;
   // animation: fade-in 1s ease-out calc(var(--transition-delay) + 1s) 1 normal
   //   backwards;
@@ -174,7 +176,7 @@ a {
   transform: translateY(-50%);
   transform: translateX(-50%);
   width: 200px;
-  // width: calc(var(--diameter-vw) * 20);
+  // width: calc(var(--planet-diameter-hor) * 20);
   //   z-index: -99;
 }
 
@@ -207,8 +209,8 @@ a {
 
 @media (max-width: 970px) {
   .planet {
-    width: var(--diameter-vh);
-    height: var(--diameter-vh);
+    width: var(--planet-diameter-ver);
+    height: var(--planet-diameter-ver);
     bottom: var(--orbit-radius);
     right: auto;
     transform: rotate(0deg) translateY(var(--orbit-radius)) rotate(0deg);
@@ -225,7 +227,7 @@ a {
     h2 {
       top: auto;
       transform: translateX(50%);
-      left: calc(var(--diameter-vh) / 2 + 20px);
+      left: calc(var(--planet-diameter-ver) / 2 + 20px);
       animation: fade-in 1s ease-in-out calc(var(--transition-delay) + 2s) 1
         normal both;
     }
@@ -235,8 +237,8 @@ a {
     width: calc(var(--orbit-diameter) / 2);
     height: calc(var(--orbit-diameter) / 2);
     top: auto;
-    right: calc(var(--diameter-vh) / 2 - var(--orbit-diameter) / 4);
-    bottom: calc(var(--diameter-vh) / 2);
+    right: calc(var(--planet-diameter-ver) / 2 - var(--orbit-diameter) / 4);
+    bottom: calc(var(--planet-diameter-ver) / 2);
   }
 }
 
@@ -248,14 +250,14 @@ a {
 
 @media (max-width: 370px) {
   .planet h2 {
-    left: calc(var(--diameter-vh) / 2 + 10px);
+    left: calc(var(--planet-diameter-ver) / 2 + 10px);
   }
 }
 
 // @media (max-width: 340px) {
 //   .planet {
-//     width: var(--diameter-vh);
-//     height: var(--diameter-vh);
+//     width: var(--planet-diameter-ver);
+//     height: var(--planet-diameter-ver);
 //   }
 // }
 </style>
