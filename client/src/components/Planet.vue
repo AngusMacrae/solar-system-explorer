@@ -3,7 +3,7 @@
     class="planet-system"
     :style="cssVars"
     @click="$router.push(path)"
-    :class="{ expanded: expanded, 'other-expanded': otherExpanded }"
+j    :class="{ expanded: expanded, 'other-expanded': otherExpanded, 'with-rings': rings }"
   >
     <div class="planet-wrapper">
       <div class="orbit"></div>
@@ -78,18 +78,23 @@ export default {
 
 .planet-system {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   width: var(--planet-diameter-hor);
   transition: width 0.5s ease-in-out;
-}
 
-.planet-system.expanded {
-  width: 82vw;
-}
+  &.with-rings {
+    width: calc(var(--planet-diameter-hor) * 2);
+  }
 
-.planet-system.other-expanded {
-  width: 0;
+  &.expanded {
+    width: 82vw;
+    justify-content: space-evenly;
+  }
+
+  &.other-expanded {
+    width: 0;
+  }
 }
 
 .planet-wrapper {
@@ -103,9 +108,15 @@ export default {
   opacity: 0;
 }
 
-.expanded .planet {
-  width: 20vw;
-  height: 20vw;
+.expanded {
+  &.with-rings .planet-wrapper {
+    margin-left: 7vw;
+  }
+
+  .planet {
+    width: 20vw;
+    height: 20vw;
+  }
 }
 
 .planet {
@@ -173,11 +184,14 @@ a {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateY(-50%);
-  transform: translateX(-50%);
-  width: 200px;
-  // width: calc(var(--planet-diameter-hor) * 20);
-  //   z-index: -99;
+  transform: translateY(-50%) translateX(-50%);
+  max-width: none;
+  width: calc(var(--planet-diameter-hor) * 2);
+  z-index: -99;
+}
+
+.expanded .rings {
+  width: 40vw;
 }
 
 @keyframes orbit-in-left {
