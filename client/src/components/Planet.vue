@@ -2,10 +2,9 @@
   <div
     class="planet-system"
     :style="cssVars"
-    @click="$emit('toggle', $event.target)"
     :class="{ expanded: expanded, 'other-expanded': otherExpanded, 'with-rings': rings }"
 >
-    <div class="planet-wrapper">
+    <div class="planet-wrapper" @click="$emit('toggle', $event.target)">
       <div class="orbit"></div>
       <router-link :to="path" :event="expanded ? 'click' : ''">
         <div class="planet">
@@ -21,6 +20,9 @@
       :fillColour="moon.bulkColour"
       :diameter="moon.diameter"
     />
+    <transition name="fade">
+      <button class="back-btn" v-if="expanded" @click="$emit('collapse')">&#8592; Back to Solar System</button>
+    </transition>
   </div>
 </template>
 
@@ -74,6 +76,7 @@ export default {
 
 .planet-system {
   display: flex;
+  position: relative;
   /* justify-content: center; */
   justify-content: space-evenly;
   align-items: center;
@@ -197,6 +200,33 @@ a {
 .expanded .rings {
   width: 40vw;
   height: calc(40vw * 0.3685);
+}
+
+.back-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: inherit;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+}
+
+.fade-enter-active {
+  transition: opacity 0.5s 0.5s
+}
+
+.fade-leave-active {
+  transition: opacity 0.05s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 
 @keyframes orbit-in-left {

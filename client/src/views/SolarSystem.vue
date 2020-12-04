@@ -1,7 +1,6 @@
 <template>
   <div
     id="solar-system"
-    @click="collapseAll($event.target)"
     :class="{ 'child-expanded': expanded != null ? true : false }"
   >
     <h1 class="title">{{ title }}</h1>
@@ -24,6 +23,7 @@
       :expanded="index == expanded ? true : false"
       :otherExpanded="index != expanded && expanded != null ? true : false"
       @toggle="toggleHandler(index)"
+      @collapse="collapseAll()"
     />
   </div>
 </template>
@@ -54,10 +54,8 @@ export default {
     toggleHandler(target_planet_index) {
       this.expanded = target_planet_index;
     },
-    collapseAll(target_element) {
-      if (target_element.id == "solar-system") {
-        this.expanded = null;
-      }
+    collapseAll() {
+      this.expanded = null;
     }
   },
   components: {
