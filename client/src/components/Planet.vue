@@ -74,13 +74,16 @@ export default {
 
 .planet-system {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  justify-content: space-evenly;
   align-items: center;
   width: var(--planet-diameter-hor);
   transition: width 0.5s ease-in-out;
 
   &.with-rings {
-    width: calc(var(--planet-diameter-hor) * 2);
+    /* width: calc(var(--planet-diameter-hor) * 2); */
+    /* margin-left: 2vw; */
+    /* margin-right: 2vw; */
   }
 
   &.expanded {
@@ -98,15 +101,19 @@ export default {
   order: var(--flex-order);
 }
 
-.other-expanded .planet {
-  width: 0;
-  height: 0;
-  opacity: 0;
+.other-expanded {
+  .planet, .rings {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
+  }
 }
 
-.expanded {
+    /* margin-left: 7vw; */
   &.with-rings .planet-wrapper {
-    margin-left: 7vw;
+    /* margin-left: 7vw; */
   }
 
   .planet {
@@ -176,11 +183,15 @@ a {
   text-decoration: none;
 }
 
-.rings {
+  height: calc(var(--planet-diameter-hor) * 0.737);
+  transition: width 0.5s ease-in-out, height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0.6;
+  /* z-index: -99; */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
+  height: calc(40vw * 0.3685);
   max-width: none;
   width: calc(var(--planet-diameter-hor) * 2);
   z-index: -99;
